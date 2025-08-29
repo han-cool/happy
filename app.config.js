@@ -1,19 +1,19 @@
 const variant = process.env.APP_ENV || 'development';
 const name = {
-    development: "Happy (dev)",
-    preview: "Happy (preview)",
-    production: "Happy"
+    development: "D3 AI (dev)",
+    preview: "D3 AI (preview)",
+    production: "D3 AI"
 }[variant];
 const bundleId = {
-    development: "com.slopus.happy.dev",
-    preview: "com.slopus.happy.preview",
-    production: "com.ex3ndr.happy"
+    development: "com.ai.d3aiassistant.dev",
+    preview: "com.ai.d3aiassistant.preview",
+    production: "com.ai.d3aiassistant"
 }[variant];
 
 export default {
     expo: {
         name,
-        slug: "happy",
+        slug: "d3-ai",
         version: "1.4.1",
         runtimeVersion: "16",
         orientation: "default",

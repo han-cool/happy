@@ -22,7 +22,7 @@ function plural({ count, one, few, many }: { count: number; one: string; few: st
 }
 
 /**
- * Polish translations for the Happy app
+ * Polish translations for the D3 AI app
  * Must match the exact structure of the English translations
  */
 export const pl: TranslationStructure = {
@@ -84,7 +84,7 @@ export const pl: TranslationStructure = {
         developer: 'Deweloper',
         developerTools: 'Narzędzia deweloperskie',
         about: 'O aplikacji',
-        aboutFooter: 'Happy Coder to mobilny klient Claude Code. Jest w pełni szyfrowany end-to-end, a Twoje konto jest przechowywane tylko na Twoim urządzeniu. Nie jest powiązany z Anthropic.',
+        aboutFooter: 'D3 AI to mobilny klient AI Assistant Platform. Jest w pełni szyfrowany end-to-end, a Twoje konto jest przechowywane tylko na Twoim urządzeniu. Nie jest powiązany z Anthropic.',
         whatsNew: 'Co nowego',
         whatsNewSubtitle: 'Zobacz najnowsze aktualizacje i ulepszenia',
         reportIssue: 'Zgłoś problem',
@@ -184,11 +184,11 @@ export const pl: TranslationStructure = {
     newSession: {
         // Used by new-session screen and launch flows
         title: 'Rozpocznij nową sesję',
-        noMachinesFound: 'Nie znaleziono maszyn. Najpierw uruchom sesję Happy na swoim komputerze.',
+        noMachinesFound: 'Nie znaleziono maszyn. Najpierw uruchom sesję D3 AI na swoim komputerze.',
         allMachinesOffline: 'Wszystkie maszyny są offline',
         machineOfflineHelp: {
             computerOnline: '• Czy Twój komputer jest online?',
-            daemonRunning: '• Czy daemon Happy działa? Sprawdź poleceniem `happy daemon status`'
+            daemonRunning: '• Czy daemon D3 AI działa? Sprawdź poleceniem `happy daemon status`'
         },
         machineDetails: 'Zobacz szczegóły maszyny →',
         sessionStarted: 'Sesja rozpoczęta',
@@ -211,7 +211,7 @@ export const pl: TranslationStructure = {
         // Used by Server Configuration screen (app/(app)/server.tsx)
         serverConfiguration: 'Konfiguracja serwera',
         enterServerUrl: 'Proszę wprowadzić URL serwera',
-        notValidHappyServer: 'To nie jest prawidłowy serwer Happy',
+        notValidD3AIServer: 'To nie jest prawidłowy serwer D3 AI',
         changeServer: 'Zmień serwer',
         continueWithServer: 'Kontynuować z tym serwerem?',
         resetToDefault: 'Resetuj do domyślnego',
@@ -229,12 +229,12 @@ export const pl: TranslationStructure = {
         // Used by Session Info screen (app/(app)/session/[id]/info.tsx)
         killSession: 'Zakończ sesję',
         killSessionConfirm: 'Czy na pewno chcesz zakończyć tę sesję?',
-        happySessionIdCopied: 'ID sesji Happy skopiowane do schowka',
-        failedToCopySessionId: 'Nie udało się skopiować ID sesji Happy',
-        happySessionId: 'ID sesji Happy',
-        claudeCodeSessionId: 'ID sesji Claude Code',
-        claudeCodeSessionIdCopied: 'ID sesji Claude Code skopiowane do schowka',
-        failedToCopyClaudeCodeSessionId: 'Nie udało się skopiować ID sesji Claude Code',
+        happySessionIdCopied: 'ID sesji D3 AI skopiowane do schowka',
+        failedToCopySessionId: 'Nie udało się skopiować ID sesji D3 AI',
+        happySessionId: 'ID sesji D3 AI',
+        claudeCodeSessionId: 'ID sesji AI Assistant Platform',
+        claudeCodeSessionIdCopied: 'ID sesji AI Assistant Platform skopiowane do schowka',
+        failedToCopyClaudeCodeSessionId: 'Nie udało się skopiować ID sesji AI Assistant Platform',
         metadataCopied: 'Metadane skopiowane do schowka',
         failedToCopyMetadata: 'Nie udało się skopiować metadanych',
         failedToKillSession: 'Nie udało się zakończyć sesji',
@@ -251,7 +251,7 @@ export const pl: TranslationStructure = {
         path: 'Ścieżka',
         operatingSystem: 'System operacyjny',
         processId: 'ID procesu',
-        happyHome: 'Katalog domowy Happy',
+        happyHome: 'Katalog domowy D3 AI',
         copyMetadata: 'Kopiuj metadane',
         agentState: 'Stan agenta',
         controlledByUser: 'Kontrolowany przez użytkownika',
@@ -265,7 +265,7 @@ export const pl: TranslationStructure = {
         emptyMainScreen: {
             // Used by EmptyMainScreen component
             readyToCode: 'Gotowy do kodowania?',
-            installCli: 'Zainstaluj Happy CLI',
+            installCli: 'Zainstaluj D3 AI CLI',
             runIt: 'Uruchom je',
             scanQrCode: 'Zeskanuj kod QR',
             openCamera: 'Otwórz kamerę',
@@ -481,7 +481,7 @@ export const pl: TranslationStructure = {
         invalidConnectionLink: 'Nieprawidłowy link połączenia',
         invalidConnectionLinkDescription: 'Link połączenia jest nieprawidłowy lub go brakuje. Sprawdź URL i spróbuj ponownie.',
         connectTerminal: 'Połącz terminal',
-        terminalRequestDescription: 'Terminal żąda połączenia z Twoim kontem Happy Coder. Pozwoli to terminalowi bezpiecznie wysyłać i odbierać wiadomości.',
+        terminalRequestDescription: 'Terminal żąda połączenia z Twoim kontem D3 AI. Pozwoli to terminalowi bezpiecznie wysyłać i odbierać wiadomości.',
         connectionDetails: 'Szczegóły połączenia',
         publicKey: 'Klucz publiczny',
         encryption: 'Szyfrowanie',
@@ -526,7 +526,7 @@ export const pl: TranslationStructure = {
 
     welcome: {
         // Main welcome screen for unauthenticated users
-        title: 'Mobilny klient Claude Code',
+        title: 'Mobilny klient AI Assistant Platform',
         subtitle: 'Szyfrowanie end-to-end, a Twoje konto jest przechowywane tylko na Twoim urządzeniu.',
         createAccount: 'Utwórz konto',
         linkOrRestoreAccount: 'Połącz lub przywróć konto',

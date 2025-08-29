@@ -1,11 +1,11 @@
-<div align="center"><img src="/logo.png" width="200" title="Happy Coder" alt="Happy Coder"/></div>
+<div align="center"><img src="/logo.png" width="200" title="D3 AI" alt="D3 AI"/></div>
 
 <h1 align="center">
-  Mobile and Web Client for Claude Code
+  Mobile and Web Client for AI Assistant
 </h1>
 
 <h4 align="center">
-Use Claude Code from anywhere with end-to-end encryption.
+Use AI Assistant from anywhere with end-to-end encryption.
 </h4>
 
 <div align="center">
@@ -47,11 +47,11 @@ happy
 
 ## How does it work?
 
-On your computer, run `happy` instead of `claude` to start the normal Claude Code UI through our wrapper. When you want to control Claude from your phone, it restarts the session in remote mode. To switch back to your computer, just press any key on your keyboard.
+On your computer, run `happy` instead of `claude` to start the normal AI Assistant UI through our wrapper. When you want to control Claude from your phone, it restarts the session in remote mode. To switch back to your computer, just press any key on your keyboard.
 
-## 🔥 Why Happy Coder?
+## 🔥 Why D3 AI?
 
-- 📱 **Mobile access to Claude Code** - Check what Claude is building while away from your desk
+- 📱 **Mobile access to AI Assistant** - Check what Claude is building while away from your desk
 - 🔔 **Push notifications** - Get alerted when Claude needs permission or encounters errors  
 - ⚡ **Switch devices instantly** - Take control from phone or desktop with one keypress
 - 🔐 **End-to-end encrypted** - Your code never leaves your devices unencrypted
@@ -59,13 +59,13 @@ On your computer, run `happy` instead of `claude` to start the normal Claude Cod
 
 ## 📦 Project Components
 
-- **[happy-cli](https://github.com/slopus/happy-cli)** - Command-line interface for Claude Code
+- **[happy-cli](https://github.com/slopus/happy-cli)** - Command-line interface for AI Assistant
 - **[happy-server](https://github.com/slopus/happy-server)** - Backend server for encrypted sync
 - **happy-coder** - This mobile client (you are here)
 
 ## 🏠 Who We Are
 
-We're engineers scattered across Bay Area coffee shops and hacker houses, constantly checking how Claude is progressing on our pet projects during lunch breaks. Happy Coder was born from the frustration of not being able to peek at Claude building our side hustles while we're away from our keyboards. We believe the best tools come from scratching your own itch and sharing with the community.
+We're engineers scattered across Bay Area coffee shops and hacker houses, constantly checking how Claude is progressing on our pet projects during lunch breaks. D3 AI was born from the frustration of not being able to peek at Claude building our side hustles while we're away from our keyboards. We believe the best tools come from scratching your own itch and sharing with the community.
 
 ## License
 

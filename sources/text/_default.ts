@@ -1,5 +1,5 @@
 /**
- * English translations for the Happy app
+ * English translations for the D3 AI app
  * Values can be:
  * - String constants for static text
  * - Functions with typed object parameters for dynamic text
@@ -73,7 +73,7 @@ export const en = {
         developer: 'Developer',
         developerTools: 'Developer Tools',
         about: 'About',
-        aboutFooter: 'Happy Coder is a Claude Code mobile client. It\'s fully end-to-end encrypted and your account is stored only on your device. Not affiliated with Anthropic.',
+        aboutFooter: 'SmartOSC - D3 AI Platform. Fully end-to-end encrypted and your account is stored only on your device. Not affiliated with Anthropic.',
         whatsNew: 'What\'s New',
         whatsNewSubtitle: 'See the latest updates and improvements',
         reportIssue: 'Report an Issue',
@@ -173,11 +173,11 @@ export const en = {
     newSession: {
         // Used by new-session screen and launch flows
         title: 'Start New Session',
-        noMachinesFound: 'No machines found. Start a Happy session on your computer first.',
+        noMachinesFound: 'No machines found. Start a D3 AI session on your computer first.',
         allMachinesOffline: 'All machines appear offline',
         machineOfflineHelp: {
             computerOnline: '• Is your computer online?',
-            daemonRunning: '• Is the Happy daemon running? Check with `happy daemon status`'
+            daemonRunning: '• Is the D3 AI daemon running? Check with `happy daemon status`'
         },
         machineDetails: 'View machine details →',
         sessionStarted: 'Session started',
@@ -200,7 +200,7 @@ export const en = {
         // Used by Server Configuration screen (app/(app)/server.tsx)
         serverConfiguration: 'Server Configuration',
         enterServerUrl: 'Please enter a server URL',
-        notValidHappyServer: 'Not a valid Happy Server',
+        notValidD3AIServer: 'Not a valid D3 AI Server',
         changeServer: 'Change Server',
         continueWithServer: 'Continue with this server?',
         resetToDefault: 'Reset to Default',
@@ -218,9 +218,9 @@ export const en = {
         // Used by Session Info screen (app/(app)/session/[id]/info.tsx)
         killSession: 'Kill Session',
         killSessionConfirm: 'Are you sure you want to terminate this session?',
-        happySessionIdCopied: 'Happy Session ID copied to clipboard',
-        failedToCopySessionId: 'Failed to copy Happy Session ID',
-        happySessionId: 'Happy Session ID',
+        happySessionIdCopied: 'D3 AI Session ID copied to clipboard',
+        failedToCopySessionId: 'Failed to copy D3 AI Session ID',
+        happySessionId: 'D3 AI Session ID',
         claudeCodeSessionId: 'Claude Code Session ID',
         claudeCodeSessionIdCopied: 'Claude Code Session ID copied to clipboard',
         failedToCopyClaudeCodeSessionId: 'Failed to copy Claude Code Session ID',
@@ -240,7 +240,7 @@ export const en = {
         path: 'Path',
         operatingSystem: 'Operating System',
         processId: 'Process ID',
-        happyHome: 'Happy Home',
+        happyHome: 'D3 AI Home',
         copyMetadata: 'Copy Metadata',
         agentState: 'Agent State',
         controlledByUser: 'Controlled by User',
@@ -255,7 +255,7 @@ export const en = {
         emptyMainScreen: {
             // Used by EmptyMainScreen component
             readyToCode: 'Ready to code?',
-            installCli: 'Install the Happy CLI',
+            installCli: 'Install the D3 AI CLI',
             runIt: 'Run it',
             scanQrCode: 'Scan the QR code',
             openCamera: 'Open Camera',
@@ -471,7 +471,7 @@ export const en = {
         invalidConnectionLink: 'Invalid Connection Link',
         invalidConnectionLinkDescription: 'The connection link is missing or invalid. Please check the URL and try again.',
         connectTerminal: 'Connect Terminal',
-        terminalRequestDescription: 'A terminal is requesting to connect to your Happy Coder account. This will allow the terminal to send and receive messages securely.',
+        terminalRequestDescription: 'A terminal is requesting to connect to your D3 AI account. This will allow the terminal to send and receive messages securely.',
         connectionDetails: 'Connection Details',
         publicKey: 'Public Key',
         encryption: 'Encryption',
@@ -516,7 +516,7 @@ export const en = {
 
     welcome: {
         // Main welcome screen for unauthenticated users
-        title: 'Claude Code mobile client',
+        title: 'AI Assistant Platform',
         subtitle: 'End-to-end encrypted and your account is stored only on your device.',
         createAccount: 'Create account',
         linkOrRestoreAccount: 'Link or restore account',

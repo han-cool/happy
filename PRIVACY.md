@@ -1,22 +1,22 @@
-# Privacy Policy for Happy Coder
+# Privacy Policy for D3 AI
 
 **Last Updated: January 2025**
 
 ## Overview
 
-Happy Coder is committed to protecting your privacy. This policy explains how we handle your data with our zero-knowledge encryption architecture.
+D3 AI is committed to protecting your privacy. This policy explains how we handle your data with our zero-knowledge encryption architecture.
 
 ## What We Collect
 
 ### Encrypted Data
-- **Messages and Code**: All your Claude Code conversations and code snippets are end-to-end encrypted on your device before transmission. We store this encrypted data but have no ability to decrypt or read it.
+- **Messages and Code**: All your AI Assistant conversations and code snippets are end-to-end encrypted on your device before transmission. We store this encrypted data but have no ability to decrypt or read it.
 - **Encryption Keys**: When you pair devices, encryption keys are transmitted between your devices in encrypted form. We cannot access or decrypt these keys.
 
 ### Metadata (Not Encrypted)
 - **Message IDs**: Unique identifiers for message ordering and synchronization
 - **Timestamps**: When messages were created and synced
 - **Device IDs**: Anonymous identifiers for device pairing
-- **Session IDs**: Identifiers for your Claude Code terminal sessions
+- **Session IDs**: Identifiers for your AI Assistant terminal sessions
 - **Push Notification Tokens**: Device tokens for sending push notifications via Expo's push notification service
 
 ### Analytics (PostHog)
@@ -46,7 +46,7 @@ Happy Coder is committed to protecting your privacy. This policy explains how we
 ### Metadata
 - Message IDs and timestamps are used to maintain proper message ordering
 - Device IDs enable secure pairing between your devices
-- Session IDs track your Claude Code terminal sessions for synchronization
+- Session IDs track your AI Assistant terminal sessions for synchronization
 - Push notification tokens are stored to enable notifications through Expo's service
 
 ### Push Notifications
@@ -93,7 +93,7 @@ For privacy concerns or questions:
 
 ## Compliance
 
-Happy Coder is designed with privacy by default and complies with:
+D3 AI is designed with privacy by default and complies with:
 - GDPR (General Data Protection Regulation)
 - CCPA (California Consumer Privacy Act)
 - Privacy by Design principles

@@ -1,6 +1,6 @@
 /**
- * Vietnamese translations for the Happy app
- * Bản dịch tiếng Việt cho ứng dụng Happy
+ * Vietnamese translations for the D3 AI app
+ * Bản dịch tiếng Việt cho ứng dụng D3 AI
  */
 
 function plural({ count, singular, plural }: { count: number; singular: string; plural: string }): string {
@@ -68,7 +68,7 @@ export const vi = {
         developer: 'Nhà phát triển',
         developerTools: 'Công cụ phát triển',
         about: 'Giới thiệu',
-        aboutFooter: 'Happy Coder là ứng dụng di động cho Claude Code. Được mã hóa đầu cuối hoàn toàn và tài khoản của bạn chỉ được lưu trên thiết bị. Không liên kết với Anthropic.',
+        aboutFooter: 'D3 AI là ứng dụng di động cho AI Assistant Platform. Được mã hóa đầu cuối hoàn toàn và tài khoản của bạn chỉ được lưu trên thiết bị. Không liên kết với Anthropic.',
         whatsNew: 'Có gì mới',
         whatsNewSubtitle: 'Xem các cập nhật và cải tiến mới nhất',
         reportIssue: 'Báo cáo vấn đề',
@@ -191,11 +191,11 @@ export const vi = {
     newSession: {
         // Used by new-session screen and launch flows
         title: 'Bắt đầu phiên mới',
-        noMachinesFound: 'Không tìm thấy máy nào. Hãy khởi động phiên Happy trên máy tính trước.',
+        noMachinesFound: 'Không tìm thấy máy nào. Hãy khởi động phiên D3 AI trên máy tính trước.',
         allMachinesOffline: 'Tất cả máy đều ngoại tuyến',
         machineOfflineHelp: {
             computerOnline: '• Máy tính của bạn có trực tuyến không?',
-            daemonRunning: '• Happy daemon có đang chạy không? Kiểm tra với `happy daemon status`'
+            daemonRunning: '• D3 AI daemon có đang chạy không? Kiểm tra với `happy daemon status`'
         },
         machineDetails: 'Xem chi tiết máy →',
         sessionStarted: 'Phiên đã bắt đầu',
@@ -233,8 +233,8 @@ export const vi = {
     },
 
     welcome: {
-        title: 'Chào mừng đến với Happy',
-        subtitle: 'Điều khiển Claude Code từ bất cứ đâu',
+        title: 'Chào mừng đến với D3 AI',
+        subtitle: 'Điều khiển AI Assistant Platform từ bất cứ đâu',
         createAccount: 'Tạo tài khoản',
         linkOrRestoreAccount: 'Liên kết hoặc khôi phục tài khoản',
         alreadyHaveAccount: 'Đã có tài khoản?',

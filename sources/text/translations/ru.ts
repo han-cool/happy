@@ -22,7 +22,7 @@ function plural({ count, one, few, many }: { count: number; one: string; few: st
 }
 
 /**
- * Russian translations for the Happy app
+ * Russian translations for the D3 AI app
  * Must match the exact structure of the English translations
  */
 export const ru: TranslationStructure = {
@@ -75,7 +75,7 @@ export const ru: TranslationStructure = {
         developer: 'Разработчик',
         developerTools: 'Инструменты разработчика',
         about: 'О программе',
-        aboutFooter: 'Happy Coder — мобильное приложение для работы с Claude Code. Использует сквозное шифрование, все данные аккаунта хранятся только на вашем устройстве. Не связано с Anthropic.',
+        aboutFooter: 'D3 AI — мобильное приложение для работы с AI Assistant Platform. Использует сквозное шифрование, все данные аккаунта хранятся только на вашем устройстве. Не связано с Anthropic.',
         whatsNew: 'Что нового',
         whatsNewSubtitle: 'Посмотреть последние обновления и улучшения',
         reportIssue: 'Сообщить о проблеме',
@@ -175,11 +175,11 @@ export const ru: TranslationStructure = {
     newSession: {
         // Used by new-session screen and launch flows
         title: 'Начать новую сессию',
-        noMachinesFound: 'Машины не найдены. Сначала запустите сессию Happy на вашем компьютере.',
+        noMachinesFound: 'Машины не найдены. Сначала запустите сессию D3 AI на вашем компьютере.',
         allMachinesOffline: 'Все машины находятся offline',
         machineOfflineHelp: {
             computerOnline: '• Ваш компьютер online?',
-            daemonRunning: '• Запущен ли daemon Happy? Проверьте командой `happy daemon status`'
+            daemonRunning: '• Запущен ли daemon D3 AI? Проверьте командой `happy daemon status`'
         },
         machineDetails: 'Посмотреть детали машины →',
         sessionStarted: 'Сессия запущена',
@@ -194,7 +194,7 @@ export const ru: TranslationStructure = {
         // Used by Server Configuration screen (app/(app)/server.tsx)
         serverConfiguration: 'Настройка сервера',
         enterServerUrl: 'Пожалуйста, введите URL сервера',
-        notValidHappyServer: 'Это не валидный сервер Happy',
+        notValidD3AIServer: 'Это не валидный сервер D3 AI',
         changeServer: 'Изменить сервер',
         continueWithServer: 'Продолжить с этим сервером?',
         resetToDefault: 'Сбросить по умолчанию',
@@ -212,12 +212,12 @@ export const ru: TranslationStructure = {
         // Used by Session Info screen (app/(app)/session/[id]/info.tsx)
         killSession: 'Завершить сессию',
         killSessionConfirm: 'Вы уверены, что хотите завершить эту сессию?',
-        happySessionIdCopied: 'ID сессии Happy скопирован в буфер обмена',
-        failedToCopySessionId: 'Не удалось скопировать ID сессии Happy',
-        happySessionId: 'ID сессии Happy',
-        claudeCodeSessionId: 'ID сессии Claude Code',
-        claudeCodeSessionIdCopied: 'ID сессии Claude Code скопирован в буфер обмена',
-        failedToCopyClaudeCodeSessionId: 'Не удалось скопировать ID сессии Claude Code',
+        happySessionIdCopied: 'ID сессии D3 AI скопирован в буфер обмена',
+        failedToCopySessionId: 'Не удалось скопировать ID сессии D3 AI',
+        happySessionId: 'ID сессии D3 AI',
+        claudeCodeSessionId: 'ID сессии AI Assistant Platform',
+        claudeCodeSessionIdCopied: 'ID сессии AI Assistant Platform скопирован в буфер обмена',
+        failedToCopyClaudeCodeSessionId: 'Не удалось скопировать ID сессии AI Assistant Platform',
         metadataCopied: 'Метаданные скопированы в буфер обмена',
         failedToCopyMetadata: 'Не удалось скопировать метаданные',
         failedToKillSession: 'Не удалось завершить сессию',
@@ -234,7 +234,7 @@ export const ru: TranslationStructure = {
         path: 'Путь',
         operatingSystem: 'Операционная система',
         processId: 'ID процесса',
-        happyHome: 'Домашний каталог Happy',
+        happyHome: 'Домашний каталог D3 AI',
         copyMetadata: 'Копировать метаданные',
         agentState: 'Состояние агента',
         controlledByUser: 'Управляется пользователем',
@@ -248,7 +248,7 @@ export const ru: TranslationStructure = {
         emptyMainScreen: {
             // Used by EmptyMainScreen component
             readyToCode: 'Готовы к программированию?',
-            installCli: 'Установите Happy CLI',
+            installCli: 'Установите D3 AI CLI',
             runIt: 'Запустите его',
             scanQrCode: 'Отсканируйте QR-код',
             openCamera: 'Открыть камеру',
@@ -464,7 +464,7 @@ export const ru: TranslationStructure = {
         invalidConnectionLink: 'Неверная ссылка подключения',
         invalidConnectionLinkDescription: 'Ссылка подключения отсутствует или неверна. Проверьте URL и попробуйте снова.',
         connectTerminal: 'Подключить терминал',
-        terminalRequestDescription: 'Терминал запрашивает подключение к вашему аккаунту Happy Coder. Это позволит терминалу безопасно отправлять и получать сообщения.',
+        terminalRequestDescription: 'Терминал запрашивает подключение к вашему аккаунту D3 AI. Это позволит терминалу безопасно отправлять и получать сообщения.',
         connectionDetails: 'Детали подключения',
         publicKey: 'Публичный ключ',
         encryption: 'Шифрование',
@@ -509,7 +509,7 @@ export const ru: TranslationStructure = {
 
     welcome: {
         // Main welcome screen for unauthenticated users
-        title: 'Мобильный клиент Claude Code',
+        title: 'Мобильный клиент AI Assistant Platform',
         subtitle: 'Сквозное шифрование, аккаунт хранится только на вашем устройстве.',
         createAccount: 'Создать аккаунт',
         linkOrRestoreAccount: 'Связать или восстановить аккаунт',

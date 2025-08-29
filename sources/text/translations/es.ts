@@ -1,5 +1,5 @@
 /**
- * Spanish translations for the Happy app
+ * Spanish translations for the D3 AI app
  */
 
 function plural({ count, singular, plural }: { count: number; singular: string; plural: string }): string {
@@ -64,7 +64,7 @@ export const es = {
         developer: 'Desarrollador',
         developerTools: 'Herramientas de desarrollador',
         about: 'Acerca de',
-        aboutFooter: 'Happy Coder es un cliente móvil de Claude Code. Está completamente cifrado de extremo a extremo y tu cuenta se almacena solo en tu dispositivo. No afiliado con Anthropic.',
+        aboutFooter: 'D3 AI es un cliente móvil de AI Assistant Platform. Está completamente cifrado de extremo a extremo y tu cuenta se almacena solo en tu dispositivo. No afiliado con Anthropic.',
         whatsNew: 'Novedades',
         whatsNewSubtitle: 'Ver las últimas actualizaciones y mejoras',
         reportIssue: 'Reportar un problema',

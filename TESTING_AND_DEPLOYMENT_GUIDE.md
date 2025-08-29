@@ -314,7 +314,7 @@ mkdir marketing/graphics
 #### Store Listing Information:
 ```
 Short Description (80 chars max):
-"Control Claude Code remotely with end-to-end encryption"
+"Control AI Assistant remotely with end-to-end encryption"
 
 Full Description (4000 chars max):
 "Your comprehensive description here...

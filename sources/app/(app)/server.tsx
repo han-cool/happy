@@ -102,8 +102,8 @@ export default function ServerConfigScreen() {
             }
             
             const text = await response.text();
-            if (!text.includes('Welcome to Happy Server!')) {
-                setError(t('server.notValidHappyServer'));
+            if (!text.includes('Welcome to D3 AI Server!')) {
+                setError(t('server.notValidD3AIServer'));
                 return false;
             }
             

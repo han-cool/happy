@@ -1,4 +1,4 @@
-# Happy Mobile App Customization Guide
+# D3 AI Mobile App Customization Guide
 
 ## Quick Start
 

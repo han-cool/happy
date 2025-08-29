@@ -1,10 +1,10 @@
 # App Store & Google Play Store Information
 
 ## App Name
-Happy Coder
+D3 AI
 
 ## Subtitle / Short Description
-Claude Code on the go
+AI Assistant on the go
 
 ## Categories
 - **App Store Primary**: Developer Tools
@@ -16,13 +16,13 @@ claude, code, ai, programming, developer, tools, encrypted, secure, coding, assi
 
 ## App Description / Full Description
 
-Happy Coder is the secure mobile companion for Claude Code that lets you continue your AI coding sessions anywhere (not affiliated with Anthropic). Built by developers who needed to check on Claude's progress during coffee breaks, this app brings the full Claude Code experience to your phone with military-grade encryption.
+D3 AI is the secure mobile companion for AI Assistant that lets you continue your AI coding sessions anywhere (not affiliated with Anthropic). Built by developers who needed to check on Claude's progress during coffee breaks, this app brings the full AI Assistant experience to your phone with military-grade encryption.
 
-**Important**: This app requires Claude Code to be installed on your computer. Happy Coder is a companion app that connects to your existing Claude Code setup.
+**Important**: This app requires AI Assistant to be installed on your computer. D3 AI is a companion app that connects to your existing AI Assistant setup.
 
 **Key Features:**
 
-• Continue Claude Code sessions seamlessly between desktop and mobile
+• Continue AI Assistant sessions seamlessly between desktop and mobile
 • Push notifications for permission requests and task completion
 • Access conversation history even when your terminal is offline
 • End-to-end encryption - your code stays private
@@ -41,16 +41,16 @@ Perfect for developers who:
 - Value privacy and open-source transparency
 - Work from coffee shops, trains, or anywhere
 
-Happy Coder uses the same encryption as Signal (TweetNaCl) and is completely open source. Your encryption keys never leave your device, and all data is encrypted before transmission.
+D3 AI uses the same encryption as Signal (TweetNaCl) and is completely open source. Your encryption keys never leave your device, and all data is encrypted before transmission.
 
 Built by Bay Area engineers who believe the best tools come from scratching your own itch. We needed a way to securely check on our AI coding assistant while away from our desks - so we built it and shared it with the community.
 
-Your code. Your privacy. Your Claude Code companion.
+Your code. Your privacy. Your AI Assistant companion.
 
 ## Promotional Text
-**App Store (170 chars)**: Securely continue your Claude Code sessions on mobile. End-to-end encrypted, open source, with push notifications for completed tasks. Your AI coding assistant, anywhere.
+**App Store (170 chars)**: Securely continue your AI Assistant sessions on mobile. End-to-end encrypted, open source, with push notifications for completed tasks. Your AI coding assistant, anywhere.
 
-**Google Play (80 chars)**: Secure mobile Claude Code companion. Encrypted, open source, with notifications.
+**Google Play (80 chars)**: Secure mobile AI Assistant companion. Encrypted, open source, with notifications.
 
 ## What's New (for updates)
 - Initial release

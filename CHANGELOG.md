@@ -23,7 +23,7 @@ This update focuses on seamless device connectivity, visual refinements, and int
 
 ## Version 1 - 2025-01-12
 
-Welcome to Happy - your secure, encrypted mobile companion for Claude Code. This inaugural release establishes the foundation for private, powerful AI interactions on the go.
+Welcome to Happy - your secure, encrypted mobile companion for AI Assistant. This inaugural release establishes the foundation for private, powerful AI interactions on the go.
 
 - Implemented end-to-end encrypted session management ensuring complete privacy
 - Integrated intelligent voice assistant with natural conversation capabilities

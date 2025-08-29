@@ -172,7 +172,7 @@ t('errors.fieldError', { field: 'Email', reason: 'Invalid format' })
 
 1. **Check existing keys first** - Always check if the string already exists in the `common` object or other sections before adding new keys
 2. **Think about context** - Consider the screen/component context when choosing the appropriate section (e.g., `settings.*`, `session.*`, `errors.*`)
-3. **Add to ALL languages** - When adding new strings, you MUST add them to all language files in `sources/text/translations/`
+3. **Add to ALL languages** - When adding new strings, you MUST add them to all language files in `sources/text/translations/` (en, pl, ru, vi)
 4. **Use descriptive key names** - Use clear, hierarchical keys like `newSession.machineOffline` rather than generic names
 
 #### Translation Structure
@@ -198,6 +198,7 @@ itemCount: ({ count }: { count: number }) =>
 - **English** - Default language (sources/text/_default.ts)
 - **Polish** - Full translation with plural form support (sources/text/translations/pl.ts)
 - **Russian** - Full translation with plural form support (sources/text/translations/ru.ts)
+- **Vietnamese** - Full translation with plural form support (sources/text/translations/vi.ts)
 
 #### Important Rules
 - **Never hardcode strings** in JSX - always use `t('key')`
@@ -457,7 +458,7 @@ const MyComponent = () => {
 - This project targets Android, iOS, and web platforms
 - Web is considered a secondary platform
 - Avoid web-specific implementations unless explicitly requested
-- Keep dev pages without i18n, always use t(...) function to translate all strings, when adding new string add it to all languages, think about context before translating.
+- Keep dev pages without i18n, always use t(...) function to translate all strings, when adding new string add it to all languages (en, pl, ru, vi), think about context before translating.
 
 ## Environment Configuration
 
@@ -468,9 +469,9 @@ The app supports three build variants controlled by `APP_ENV`:
 - `production` - Production release
 
 ### Bundle Identifiers
-- Development: `com.slopus.happy.dev`
-- Preview: `com.slopus.happy.preview`
-- Production: `com.ex3ndr.happy`
+- Development: `com.ai.d3aiassistant.dev`
+- Preview: `com.ai.d3aiassistant.preview`
+- Production: `com.ai.d3aiassistant`
 
 ### Version Management
 - App version: `1.4.1` (in app.config.js)
