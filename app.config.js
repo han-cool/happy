@@ -14,7 +14,7 @@ export default {
     expo: {
         name,
         slug: "d3-ai-speedlife",
-        version: "1.4.1",
+        version: "1.4.2",
         runtimeVersion: "16",
         orientation: "default",
         icon: "./sources/assets/images/icon.png",
