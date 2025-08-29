@@ -20,7 +20,7 @@ export default {
         icon: "./sources/assets/images/icon.png",
         scheme: "happy",
         userInterfaceStyle: "automatic",
-        newArchEnabled: true,
+        newArchEnabled: false, // Disabled for compatibility with LiveKit and other packages
         notification: {
             icon: "./sources/assets/images/icon-notification.png",
             iosDisplayInForeground: true
@@ -54,7 +54,7 @@ export default {
             ],
             edgeToEdgeEnabled: true,
             package: bundleId,
-            googleServicesFile: "./google-services.json",
+            // googleServicesFile: "./google-services.json", // Disabled for development build
             intentFilters: [
                 {
                     "action": "VIEW",

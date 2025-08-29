@@ -15,7 +15,6 @@
       "env": {
         "APP_ENV": "development"
       },
-      "prebuildCommand": "mv google-services.json google-services.json.bak || true"
     },
     "development-store": {
       "autoIncrement": true,
