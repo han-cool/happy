@@ -77,6 +77,7 @@ export default {
         },
         plugins: [
             require("./plugins/withEinkCompatibility.js"),
+            "react-native-edge-to-edge",
             [
                 "expo-router",
                 {
