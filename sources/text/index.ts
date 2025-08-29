@@ -2,6 +2,7 @@ import { en, type Translations, type TranslationStructure } from './_default';
 import { ru } from './translations/ru';
 import { pl } from './translations/pl';
 import { es } from './translations/es';
+import { vi } from './translations/vi';
 import * as Localization from 'expo-localization';
 import { loadSettings } from '@/sync/persistence';
 
@@ -57,7 +58,7 @@ export type TranslationParams<K extends TranslationKey> = GetParams<GetValue<Tra
 /**
  * Available languages
  */
-export type SupportedLanguage = 'en' | 'ru' | 'pl' | 'es';
+export type SupportedLanguage = 'en' | 'ru' | 'pl' | 'es' | 'vi';
 
 /**
  * Translation objects for all supported languages
@@ -68,6 +69,7 @@ const translations: Record<SupportedLanguage, TranslationStructure> = {
     ru, // TypeScript will enforce that ru matches the TranslationStructure type exactly
     pl, // TypeScript will enforce that pl matches the TranslationStructure type exactly
     es, // Spanish translation
+    vi, // Vietnamese translation
 };
 
 //
