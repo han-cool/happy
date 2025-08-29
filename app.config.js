@@ -13,7 +13,7 @@ const bundleId = {
 export default {
     expo: {
         name,
-        slug: "d3-ai",
+        slug: "d3-ai-speedlife",
         version: "1.4.1",
         runtimeVersion: "16",
         orientation: "default",
@@ -148,12 +148,12 @@ export default {
                 }
             ]
         ],
-        updates: {
-            url: "https://u.expo.dev/4558dd3d-cd5a-47cd-bad9-e591a241cc06",
-            requestHeaders: {
-                "expo-channel-name": "production"
-            }
-        },
+        // updates: {
+        //     url: "https://u.expo.dev/4558dd3d-cd5a-47cd-bad9-e591a241cc06",
+        //     requestHeaders: {
+        //         "expo-channel-name": "production"
+        //     }
+        // }, // Disabled for new project
         experiments: {
             typedRoutes: true
         },
@@ -162,7 +162,7 @@ export default {
                 root: "./sources/app"
             },
             eas: {
-                projectId: "4558dd3d-cd5a-47cd-bad9-e591a241cc06"
+                projectId: "1d396a40-73e6-416b-a3fc-06beb97a0eee"
             },
             app: {
                 postHogKey: process.env.EXPO_PUBLIC_POSTHOG_API_KEY,
@@ -171,6 +171,6 @@ export default {
                 revenueCatStripeKey: process.env.EXPO_PUBLIC_REVENUE_CAT_STRIPE
             }
         },
-        owner: "bulkacorp"
+        // owner: "bulkacorp" // Removed to use current logged in user
     }
 };

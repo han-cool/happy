@@ -9,6 +9,9 @@
       "developmentClient": true,
       "distribution": "internal",
       "channel": "development",
+      "android": {
+        "buildType": "apk"
+      },
       "env": {
         "APP_ENV": "development"
       }
@@ -20,6 +23,11 @@
       "channel": "development",
       "env": {
         "APP_ENV": "development"
+      }
+    },
+    "apk": {
+      "android": {
+        "buildType": "apk"
       }
     },
     "preview": {
