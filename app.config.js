@@ -20,7 +20,7 @@ export default {
         icon: "./sources/assets/images/icon.png",
         scheme: "happy",
         userInterfaceStyle: "automatic",
-        newArchEnabled: false, // Disabled for compatibility with LiveKit and other packages
+        newArchEnabled: true, // Required for Unistyles 3.0
         notification: {
             icon: "./sources/assets/images/icon-notification.png",
             iosDisplayInForeground: true
