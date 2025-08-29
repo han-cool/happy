@@ -6,18 +6,24 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ### Development
 - `yarn start` - Start the Expo development server
+- `yarn start:local-server` - Start with local server debugging enabled (sets DEBUG=1 and local server URL)
 - `yarn ios` - Run the app on iOS simulator
+- `yarn ios:connected-device` - Run on connected iOS device (auto-detects first available paired device)
 - `yarn android` - Run the app on Android emulator  
 - `yarn web` - Run the app in web browser
-- `yarn prebuild` - Generate native iOS and Android directories
+- `yarn prebuild` - Generate native iOS and Android directories (removes existing android/ios directories first)
 - `yarn typecheck` - Run TypeScript type checking after all changes
+- `yarn generate-theme` - Generate Material You theme colors from base color (#18171C)
 
 ### Testing
-- `yarn test` - Run tests in watch mode (Jest with jest-expo preset)
-- No existing tests in the codebase yet
+- `yarn test` - Run tests using Vitest (includes TypeScript and Node.js tests)
+- Tests are located in `sources/**/*.{spec,test}.ts` files
+- Test configuration is in `vitest.config.ts`
 
 ### Production
-- `yarn ota` - Deploy over-the-air updates via EAS Update to production branch
+- `yarn ota` - Deploy OTA updates to preview branch (includes changelog parsing and typecheck)
+- `yarn ota:production` - Deploy OTA updates to production branch (includes changelog parsing and typecheck)
+- `yarn submit` - Submit iOS build to App Store Connect
 
 ## Changelog Management
 
@@ -71,30 +77,64 @@ This generates `sources/changelog/changelog.json` which is used by the app.
 ## Architecture Overview
 
 ### Core Technology Stack
-- **React Native** with **Expo** SDK 53
-- **TypeScript** with strict mode enabled
-- **Unistyles** for cross-platform styling with themes and breakpoints
+- **React Native 0.79.5** with **Expo SDK 53**
+- **TypeScript 5.8** with strict mode enabled
+- **React Native Unistyles v3** for cross-platform styling with themes and breakpoints
 - **Expo Router v5** for file-based routing
-- **Socket.io** for real-time WebSocket communication
-- **tweetnacl** for end-to-end encryption
+- **Socket.io v4** for real-time WebSocket communication
+- **tweetnacl** and **react-native-libsodium** for end-to-end encryption
+- **React Native Reanimated v4** for animations
+- **Vitest** for unit testing
+- **Zustand** for state management
 
 ### Project Structure
 ```
 sources/
-├── app/              # Expo Router screens
+├── app/              # Expo Router screens (file-based routing)
+│   ├── (app)/        # Main app screens with auth guard
+│   ├── dev/          # Development tools and debug screens
+│   ├── session/      # Session detail screens
+│   └── settings/     # Settings and preferences screens
 ├── auth/             # Authentication logic (QR code based)
+├── changelog/        # Changelog parsing and display logic
 ├── components/       # Reusable UI components
+│   └── CommandPalette/ # Global command palette system
+├── modal/            # Custom modal system (replaces React Native Alert)
+├── scripts/          # Build-time scripts (changelog parser, etc.)
 ├── sync/             # Real-time sync engine with encryption
-└── utils/            # Utility functions
+├── text/             # i18n translations (en, pl, ru)
+├── theme/            # Unistyles theme configuration
+├── trash/            # Temporary scripts and experiments
+├── utils/            # Utility functions
+└── voice/            # Voice assistant integration
 ```
 
 ### Key Architectural Patterns
 
 1. **Authentication Flow**: QR code-based authentication using expo-camera with challenge-response mechanism
-2. **Data Synchronization**: WebSocket-based real-time sync with automatic reconnection and state management
-3. **Encryption**: End-to-end encryption using tweetnacl for all sensitive data
-4. **State Management**: React Context for auth state, custom reducer for sync state
-5. **Platform-Specific Code**: Separate implementations for web vs native when needed
+   - Secret key stored in expo-secure-store for security
+   - Backup/restore functionality for account migration
+   - GitHub OAuth integration for profile sync
+
+2. **Data Synchronization**: WebSocket-based real-time sync with automatic reconnection
+   - Encrypted message passing via `apiTypes.ts` schemas
+   - Session-based encryption with unique keys per session
+   - Automatic persistence to MMKV storage for offline support
+
+3. **Encryption**: Multi-layer encryption strategy
+   - End-to-end encryption using tweetnacl for messages
+   - Session keys for temporary encryption
+   - GitHub token encryption for backend storage
+
+4. **State Management**: Hybrid approach
+   - React Context for auth state (`AuthContext.tsx`)
+   - Zustand for global app state
+   - Local component state for UI interactions
+
+5. **Platform-Specific Code**: File extensions for platform targeting
+   - `.native.ts` for mobile-specific implementations
+   - `.web.tsx` for web-specific components
+   - `.ios.tsx` / `.android.tsx` for OS-specific features
 
 ### Development Guidelines
 
@@ -154,6 +194,11 @@ itemCount: ({ count }: { count: number }) =>
 - `modals.*` - Modal dialogs and popups
 - `components.*` - Component-specific strings organized by component name
 
+#### Supported Languages
+- **English** - Default language (sources/text/_default.ts)
+- **Polish** - Full translation with plural form support (sources/text/translations/pl.ts)
+- **Russian** - Full translation with plural form support (sources/text/translations/ru.ts)
+
 #### Important Rules
 - **Never hardcode strings** in JSX - always use `t('key')`
 - **Dev pages exception** - Development/debug pages can skip i18n
@@ -170,10 +215,15 @@ itemCount: ({ count }: { count: number }) =>
 
 ### Important Files
 
-- `sources/sync/types.ts` - Core type definitions for the sync protocol
-- `sources/sync/reducer.ts` - State management logic for sync operations
+- `sources/sync/apiTypes.ts` - Core type definitions for the sync protocol
+- `sources/sync/apiSocket.ts` - WebSocket connection management
+- `sources/sync/storage.ts` - MMKV-based persistence layer
 - `sources/auth/AuthContext.tsx` - Authentication state management
-- `sources/app/_layout.tsx` - Root navigation structure
+- `sources/app/_layout.tsx` - Root navigation structure with auth guard
+- `sources/app/(app)/_layout.tsx` - Main app navigation (drawer + stack)
+- `sources/text/_default.ts` - English translation strings
+- `sources/modal/index.ts` - Custom modal system exports
+- `app.config.js` - Expo configuration with environment variants
 
 ### Custom Header Component
 
@@ -408,3 +458,36 @@ const MyComponent = () => {
 - Web is considered a secondary platform
 - Avoid web-specific implementations unless explicitly requested
 - Keep dev pages without i18n, always use t(...) function to translate all strings, when adding new string add it to all languages, think about context before translating.
+
+## Environment Configuration
+
+### App Variants
+The app supports three build variants controlled by `APP_ENV`:
+- `development` - Local development with debug features
+- `preview` - Testing environment with preview features
+- `production` - Production release
+
+### Bundle Identifiers
+- Development: `com.slopus.happy.dev`
+- Preview: `com.slopus.happy.preview`
+- Production: `com.ex3ndr.happy`
+
+### Version Management
+- App version: `1.4.1` (in app.config.js)
+- Runtime version: `16` (for OTA updates)
+- Changelog versions: Sequential integers (1, 2, 3...)
+
+## Testing Strategy
+
+### Unit Tests
+- Run with `yarn test`
+- Test files: `**/*.{spec,test}.ts`
+- Framework: Vitest with Node.js environment
+- Coverage reports available in text, JSON, and HTML formats
+
+### Manual Testing Checklist
+1. Run `yarn typecheck` before committing
+2. Test on both iOS and Android simulators
+3. Verify i18n for all new strings in all languages
+4. Check responsive layout on different screen sizes
+5. Test offline functionality and sync recovery

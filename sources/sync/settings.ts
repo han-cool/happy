@@ -18,6 +18,8 @@ export const SettingsSchema = z.object({
     reviewPromptLikedApp: z.boolean().nullish().describe('Whether user liked the app when asked'),
     voiceAssistantLanguage: z.string().nullable().describe('Preferred language for voice assistant (null for auto-detect)'),
     preferredLanguage: z.string().nullable().describe('Preferred UI language (null for auto-detect from device locale)'),
+    showHomeStats: z.boolean().describe('Whether to show statistics on home screen'),
+    enableNotifications: z.boolean().describe('Whether to enable push notifications'),
 });
 
 //
@@ -48,6 +50,8 @@ export const settingsDefaults: Settings = {
     analyticsOptOut: false,
     experiments: false,
     alwaysShowContextSize: false,
+    showHomeStats: false,
+    enableNotifications: true,
     avatarStyle: 'brutalist',
     reviewPromptAnswered: false,
     reviewPromptLikedApp: null,

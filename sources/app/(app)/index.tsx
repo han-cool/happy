@@ -21,6 +21,8 @@ import { HomeHeader, HomeHeaderNotAuth } from "@/components/HomeHeader";
 import { VoiceAssistantStatusBar } from '@/components/VoiceAssistantStatusBar';
 import { useRealtimeStatus } from '@/sync/storage';
 import { t } from '@/text';
+import { StatsCard } from '@/components/StatsCard';
+import { ScrollView } from 'react-native';
 
 export default function Home() {
     const auth = useAuth();
@@ -37,6 +39,7 @@ function Authenticated() {
     let sessionListViewData = useSessionListViewData();
     const isTablet = useIsTablet();
     const isExperimental = useSetting('experiments');
+    const showHomeStats = useSetting('showHomeStats');
     const realtimeStatus = useRealtimeStatus();
 
     const handleNewSession = () => {
@@ -98,7 +101,43 @@ function Authenticated() {
             )}
             <View style={styles.container}>
                 {!sessionListViewData || sessionListViewData.length === 0 ? emptyState : (
-                    <SessionsList />
+                    <>
+                        {showHomeStats && sessionListViewData.length > 0 && (
+                            <ScrollView 
+                                horizontal 
+                                showsHorizontalScrollIndicator={false}
+                                style={styles.statsContainer}
+                                contentContainerStyle={styles.statsContent}
+                            >
+                                <StatsCard
+                                    title="Active Sessions"
+                                    value={sessionListViewData.filter(s => s.status === 'active').length}
+                                    subtitle="Currently active"
+                                    icon="flash-outline"
+                                    onPress={() => router.push('/stats')}
+                                />
+                                <StatsCard
+                                    title="Today"
+                                    value={sessionListViewData.filter(s => {
+                                        const today = new Date();
+                                        today.setHours(0, 0, 0, 0);
+                                        return new Date(s.updatedAt) >= today;
+                                    }).length}
+                                    subtitle="Sessions today"
+                                    icon="today-outline"
+                                    onPress={() => router.push('/stats')}
+                                />
+                                <StatsCard
+                                    title="View All"
+                                    value="→"
+                                    subtitle="Statistics"
+                                    icon="bar-chart-outline"
+                                    onPress={() => router.push('/stats')}
+                                />
+                            </ScrollView>
+                        )}
+                        <SessionsList />
+                    </>
                 )}
             </View>
             {isExperimental && (
@@ -270,6 +309,14 @@ const styles = StyleSheet.create((theme) => ({
         alignItems: 'center',
         justifyContent: 'center',
         paddingBottom: 32,
+    },
+    statsContainer: {
+        height: 120,
+        backgroundColor: theme.colors.groupped.background,
+    },
+    statsContent: {
+        paddingHorizontal: theme.margins.sm,
+        paddingVertical: theme.margins.xs,
     },
     // NotAuthenticated styles
     portraitContainer: {

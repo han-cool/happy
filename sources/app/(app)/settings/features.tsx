@@ -9,6 +9,8 @@ import { t } from '@/text';
 
 export default function FeaturesSettingsScreen() {
     const [experiments, setExperiments] = useSettingMutable('experiments');
+    const [showHomeStats, setShowHomeStats] = useSettingMutable('showHomeStats');
+    const [enableNotifications, setEnableNotifications] = useSettingMutable('enableNotifications');
     const [commandPaletteEnabled, setCommandPaletteEnabled] = useLocalSettingMutable('commandPaletteEnabled');
     
     return (
@@ -26,6 +28,44 @@ export default function FeaturesSettingsScreen() {
                         <Switch
                             value={experiments}
                             onValueChange={setExperiments}
+                        />
+                    }
+                    showChevron={false}
+                />
+            </ItemGroup>
+
+            {/* Display Features */}
+            <ItemGroup 
+                title="Display Options"
+                footer="Customize what information is shown in the app"
+            >
+                <Item
+                    title="Home Screen Statistics"
+                    subtitle={showHomeStats ? "Show session stats on home" : "Statistics hidden"}
+                    icon={<Ionicons name="bar-chart-outline" size={29} color="#34C759" />}
+                    rightElement={
+                        <Switch
+                            value={showHomeStats}
+                            onValueChange={setShowHomeStats}
+                        />
+                    }
+                    showChevron={false}
+                />
+            </ItemGroup>
+
+            {/* Notification Settings */}
+            <ItemGroup 
+                title="Notifications"
+                footer="Control when and how you receive notifications"
+            >
+                <Item
+                    title="Push Notifications"
+                    subtitle={enableNotifications ? "Notifications enabled" : "Notifications disabled"}
+                    icon={<Ionicons name="notifications-outline" size={29} color="#FF9500" />}
+                    rightElement={
+                        <Switch
+                            value={enableNotifications}
+                            onValueChange={setEnableNotifications}
                         />
                     }
                     showChevron={false}
