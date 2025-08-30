@@ -169,8 +169,8 @@ async function generateSplashScreen(width, height, darkTheme = false) {
     ctx.fillStyle = bgColor;
     ctx.fillRect(0, 0, width, height);
     
-    // Center logo
-    const logoSize = Math.min(width, height) * 0.3;
+    // Center logo with "D3" text
+    const logoSize = Math.min(width, height) * 0.25;
     const logoCanvas = await generateAppIcon(logoSize, logoSize, { 
         transparent: true,
         textColor: darkTheme ? BRAND_CONFIG.colors.textLight : BRAND_CONFIG.colors.primary
@@ -178,17 +178,11 @@ async function generateSplashScreen(width, height, darkTheme = false) {
     
     ctx.drawImage(logoCanvas, (width - logoSize) / 2, (height - logoSize) / 2 - logoSize * 0.1);
     
-    // App name below logo
-    const textY = (height + logoSize) / 2 + logoSize * 0.3;
-    const fontSize = Math.min(width, height) * 0.05;
+    // Just "D3AI" text below logo - simplified and clean
+    const textY = (height + logoSize) / 2 + logoSize * 0.4;
+    const fontSize = Math.min(width, height) * 0.08;
     ctx.fillStyle = darkTheme ? BRAND_CONFIG.colors.textLight : BRAND_CONFIG.colors.text;
-    drawTextLogo(ctx, BRAND_CONFIG.appName, width / 2, textY, width * 0.8, fontSize, '600');
-    
-    // Slogan
-    const sloganY = textY + fontSize * 1.2;
-    const sloganSize = fontSize * 0.7;
-    ctx.fillStyle = darkTheme ? BRAND_CONFIG.colors.textLight + '99' : BRAND_CONFIG.colors.text + '99';
-    drawTextLogo(ctx, BRAND_CONFIG.slogan, width / 2, sloganY, width * 0.8, sloganSize, '400');
+    drawTextLogo(ctx, 'D3AI', width / 2, textY, width * 0.8, fontSize, '700');
     
     return splashCanvas;
 }

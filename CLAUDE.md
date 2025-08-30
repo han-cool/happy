@@ -474,7 +474,7 @@ The app supports three build variants controlled by `APP_ENV`:
 - Production: `com.ai.d3aiassistant`
 
 ### Version Management
-- App version: `1.4.1` (in app.config.js)
+- App version: `1.4.2` (in app.config.js)
 - Runtime version: `16` (for OTA updates)
 - Changelog versions: Sequential integers (1, 2, 3...)
 
