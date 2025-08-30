@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, Pressable } from 'react-native';
-import { StyleSheet, useStyles } from 'react-native-unistyles';
+import { StyleSheet, useUnistyles } from 'react-native-unistyles';
 import { Ionicons } from '@expo/vector-icons';
 import { haptics } from './haptics';
 
@@ -21,7 +21,7 @@ export const StatsCard = React.memo(({
     iconColor,
     onPress 
 }: StatsCardProps) => {
-    const { theme } = useStyles();
+    const { theme } = useUnistyles();
     
     const handlePress = () => {
         if (onPress) {

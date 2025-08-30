@@ -452,4 +452,14 @@ export const vi = {
         syncComplete: 'Đồng bộ hoàn tất',
         syncFailed: 'Đồng bộ thất bại',
     },
+
+    components: {
+        emptyMainScreen: {
+            readyToCode: 'Sẵn sàng lập trình?',
+            installCli: 'Cài đặt D3 AI CLI',
+            runIt: 'Chạy nó',
+            scanQrCode: 'Quét mã QR',
+            openCamera: 'Mở máy ảnh',
+        },
+    },
 };

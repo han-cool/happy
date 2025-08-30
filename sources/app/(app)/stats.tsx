@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, ScrollView, Text } from 'react-native';
-import { StyleSheet, useStyles } from 'react-native-unistyles';
+import { StyleSheet, useUnistyles } from 'react-native-unistyles';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Stack } from 'expo-router';
 import { NavigationHeader } from '@/components/navigation/Header';
@@ -11,7 +11,7 @@ import { layoutConstraints } from '@/components/layout';
 import { t } from '@/text';
 
 export default function StatsScreen() {
-    const { theme } = useStyles();
+    const { theme } = useUnistyles();
     const insets = useSafeAreaInsets();
     const sessions = useSessionListViewData();
     
