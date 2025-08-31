@@ -11,7 +11,7 @@ import { Item } from '@/components/Item';
 import { ItemGroup } from '@/components/ItemGroup';
 import { ItemList } from '@/components/ItemList';
 import { useConnectTerminal } from '@/hooks/useConnectTerminal';
-import { useEntitlement, useLocalSettingMutable } from '@/sync/storage';
+import { useEntitlement, useLocalSettingMutable, useSettingMutable } from '@/sync/storage';
 import { sync } from '@/sync/sync';
 import { isUsingCustomServer } from '@/sync/serverConfig';
 import { trackPaywallButtonClicked } from '@/track';
@@ -93,6 +93,11 @@ export default React.memo(function SettingsScreen() {
     const [devModeEnabled, setDevModeEnabled] = useLocalSettingMutable('devModeEnabled');
     const isPro = __DEV__ || useEntitlement('pro');
     const isCustomServer = isUsingCustomServer();
+    
+    // Feature flags for support options
+    const [featureSupportUs] = useSettingMutable('featureSupportUs');
+    const [featureBuyMeCoffee] = useSettingMutable('featureBuyMeCoffee');
+    const [featureSendFeedback] = useSettingMutable('featureSendFeedback');
     const allMachines = useAllMachines();
     const profile = useProfile();
     const displayName = getDisplayName(profile);
@@ -124,6 +129,14 @@ export default React.memo(function SettingsScreen() {
             console.error('Failed to present paywall:', result.error);
         } else if (result.purchased) {
             console.log('Purchase successful!');
+        }
+    };
+
+    const handleBuyMeCoffee = async () => {
+        const url = 'https://ko-fi.com/soscd3ai';
+        const supported = await Linking.canOpenURL(url);
+        if (supported) {
+            await Linking.openURL(url);
         }
     };
 
@@ -258,16 +271,39 @@ export default React.memo(function SettingsScreen() {
                 </ItemGroup>
             )}
 
-            {/* Support Us */}
-            <ItemGroup>
-                <Item
-                    title={t('settings.supportUs')}
-                    subtitle={isPro ? t('settings.supportUsSubtitlePro') : t('settings.supportUsSubtitle')}
-                    icon={<Ionicons name="heart" size={29} color="#FF3B30" />}
-                    showChevron={false}
-                    onPress={isPro ? undefined : handleSubscribe}
-                />
-            </ItemGroup>
+            {/* Support Section - Conditional based on feature flags */}
+            {(featureSupportUs || featureBuyMeCoffee || featureSendFeedback) && (
+                <ItemGroup title={t('settings.support')}>
+                    {featureSupportUs && !isPro && (
+                        <Item
+                            title={t('settings.supportUs')}
+                            subtitle={t('settings.supportUsSubtitle')}
+                            icon={<Ionicons name="heart" size={29} color="#FF3B30" />}
+                            showChevron={false}
+                            onPress={handleSubscribe}
+                        />
+                    )}
+                    
+                    {featureBuyMeCoffee && (
+                        <Item
+                            title={t('settings.buyMeCoffee')}
+                            subtitle={t('settings.buyMeCoffeeSubtitle')}
+                            icon={<Ionicons name="cafe" size={29} color="#8B4513" />}
+                            showChevron={false}
+                            onPress={handleBuyMeCoffee}
+                        />
+                    )}
+                    
+                    {featureSendFeedback && (
+                        <Item
+                            title={t('settings.sendFeedback')}
+                            subtitle={t('settings.feedbackSubtitle')}
+                            icon={<Ionicons name="chatbubble-outline" size={29} color="#007AFF" />}
+                            onPress={() => router.push('/settings/feedback')}
+                        />
+                    )}
+                </ItemGroup>
+            )}
 
             <ItemGroup title={t('settings.connectedAccounts')}>
                 <Item

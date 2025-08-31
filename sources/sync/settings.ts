@@ -20,6 +20,9 @@ export const SettingsSchema = z.object({
     preferredLanguage: z.string().nullable().describe('Preferred UI language (null for auto-detect from device locale)'),
     showHomeStats: z.boolean().describe('Whether to show statistics on home screen'),
     enableNotifications: z.boolean().describe('Whether to enable push notifications'),
+    featureSupportUs: z.boolean().describe('Whether to show Support Us subscription option'),
+    featureBuyMeCoffee: z.boolean().describe('Whether to show Buy Me a Coffee donation option'),
+    featureSendFeedback: z.boolean().describe('Whether to show Send Feedback option'),
 });
 
 //
@@ -57,6 +60,9 @@ export const settingsDefaults: Settings = {
     reviewPromptLikedApp: null,
     voiceAssistantLanguage: null,
     preferredLanguage: null,
+    featureSupportUs: true,
+    featureBuyMeCoffee: true,
+    featureSendFeedback: true,
 };
 Object.freeze(settingsDefaults);
 

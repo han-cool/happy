@@ -13,6 +13,11 @@ export default function FeaturesSettingsScreen() {
     const [enableNotifications, setEnableNotifications] = useSettingMutable('enableNotifications');
     const [commandPaletteEnabled, setCommandPaletteEnabled] = useLocalSettingMutable('commandPaletteEnabled');
     
+    // Support feature flags
+    const [featureSupportUs, setFeatureSupportUs] = useSettingMutable('featureSupportUs');
+    const [featureBuyMeCoffee, setFeatureBuyMeCoffee] = useSettingMutable('featureBuyMeCoffee');
+    const [featureSendFeedback, setFeatureSendFeedback] = useSettingMutable('featureSendFeedback');
+    
     return (
         <ItemList style={{ paddingTop: 0 }}>
             {/* Experimental Features */}
@@ -66,6 +71,49 @@ export default function FeaturesSettingsScreen() {
                         <Switch
                             value={enableNotifications}
                             onValueChange={setEnableNotifications}
+                        />
+                    }
+                    showChevron={false}
+                />
+            </ItemGroup>
+
+            {/* Support Features */}
+            <ItemGroup 
+                title={t('settingsFeatures.supportFeatures')}
+                footer={t('settingsFeatures.supportFeaturesDescription')}
+            >
+                <Item
+                    title={t('settingsFeatures.supportUs')}
+                    subtitle={featureSupportUs ? t('settingsFeatures.supportUsEnabled') : t('settingsFeatures.supportUsDisabled')}
+                    icon={<Ionicons name="heart-outline" size={29} color="#FF3B30" />}
+                    rightElement={
+                        <Switch
+                            value={featureSupportUs}
+                            onValueChange={setFeatureSupportUs}
+                        />
+                    }
+                    showChevron={false}
+                />
+                <Item
+                    title={t('settingsFeatures.buyMeCoffee')}
+                    subtitle={featureBuyMeCoffee ? t('settingsFeatures.buyMeCoffeeEnabled') : t('settingsFeatures.buyMeCoffeeDisabled')}
+                    icon={<Ionicons name="cafe-outline" size={29} color="#8B4513" />}
+                    rightElement={
+                        <Switch
+                            value={featureBuyMeCoffee}
+                            onValueChange={setFeatureBuyMeCoffee}
+                        />
+                    }
+                    showChevron={false}
+                />
+                <Item
+                    title={t('settingsFeatures.sendFeedback')}
+                    subtitle={featureSendFeedback ? t('settingsFeatures.sendFeedbackEnabled') : t('settingsFeatures.sendFeedbackDisabled')}
+                    icon={<Ionicons name="chatbubble-outline" size={29} color="#007AFF" />}
+                    rightElement={
+                        <Switch
+                            value={featureSendFeedback}
+                            onValueChange={setFeatureSendFeedback}
                         />
                     }
                     showChevron={false}
