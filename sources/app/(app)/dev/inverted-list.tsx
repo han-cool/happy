@@ -140,9 +140,8 @@ export default function InvertedListTest() {
                                     renderItem={renderItem}
                                     keyExtractor={item => item.id}
                                     maintainVisibleContentPosition={{
-                                        autoscrollToBottomThreshold: 0.2,
                                         autoscrollToTopThreshold: 100,
-                                        startRenderingFromBottom: true
+                                        minIndexForVisible: 0
                                     }}
                                     ListEmptyComponent={ListEmptyComponent}
                                     ListHeaderComponent={ListHeaderComponent}

@@ -551,6 +551,7 @@ export const en = {
             en: 'English',
             ru: 'Русский',
             pl: 'Polski',
+            vi: 'Tiếng Việt',
         }
     },
 

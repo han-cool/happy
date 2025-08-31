@@ -10,7 +10,7 @@ import { Modal } from '@/modal';
 import { useUpdates } from '@/hooks/useUpdates';
 import * as Localization from 'expo-localization';
 
-type LanguageOption = 'auto' | 'en' | 'ru' | 'pl' | 'es' | 'vi';
+type LanguageOption = 'auto' | 'en' | 'ru' | 'pl' | 'vi';
 
 interface LanguageItem {
     key: LanguageOption;
@@ -28,7 +28,6 @@ export default function LanguageSettingsScreen() {
     const deviceLanguage = deviceLocale.split('-')[0].toLowerCase();
     const detectedLanguageName = deviceLanguage === 'ru' ? t('settingsLanguage.languages.ru') : 
                                  deviceLanguage === 'pl' ? t('settingsLanguage.languages.pl') :
-                                 deviceLanguage === 'es' ? t('settingsLanguage.languages.es') :
                                  deviceLanguage === 'vi' ? t('settingsLanguage.languages.vi') : 
                                  t('settingsLanguage.languages.en');
 
@@ -37,7 +36,6 @@ export default function LanguageSettingsScreen() {
                                            preferredLanguage === 'en' ? 'en' :
                                            preferredLanguage === 'ru' ? 'ru' :
                                            preferredLanguage === 'pl' ? 'pl' :
-                                           preferredLanguage === 'es' ? 'es' :
                                            preferredLanguage === 'vi' ? 'vi' : 'auto';
 
     // Language options
@@ -58,10 +56,6 @@ export default function LanguageSettingsScreen() {
         {
             key: 'pl',
             title: t('settingsLanguage.languages.pl')
-        },
-        {
-            key: 'es',
-            title: t('settingsLanguage.languages.es')
         },
         {
             key: 'vi',

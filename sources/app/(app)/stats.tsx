@@ -3,11 +3,11 @@ import { View, ScrollView, Text } from 'react-native';
 import { StyleSheet, useUnistyles } from 'react-native-unistyles';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Stack } from 'expo-router';
-import { NavigationHeader } from '@/components/navigation/Header';
+import { createHeader as NavigationHeader } from '@/components/navigation/Header';
 import { StatsCard } from '@/components/StatsCard';
 import { useSessionListViewData } from '@/sync/storage';
 import { ActivityIndicator } from 'react-native';
-import { layoutConstraints } from '@/components/layout';
+import { layout } from '@/components/layout';
 import { t } from '@/text';
 
 export default function StatsScreen() {
@@ -19,9 +19,10 @@ export default function StatsScreen() {
     const stats = React.useMemo(() => {
         if (!sessions) return null;
         
-        const totalSessions = sessions.length;
-        const activeSessions = sessions.filter(s => s.status === 'active').length;
-        const totalMessages = sessions.reduce((acc, s) => acc + (s.messageCount || 0), 0);
+        const sessionItems = sessions.filter(s => s.type === 'session');
+        const totalSessions = sessionItems.length;
+        const activeSessions = sessionItems.filter(s => s.session.active).length;
+        const totalMessages = 0; // Messages are stored separately, not on session object
         const avgMessagesPerSession = totalSessions > 0 
             ? Math.round(totalMessages / totalSessions) 
             : 0;
@@ -29,8 +30,8 @@ export default function StatsScreen() {
         // Calculate today's sessions
         const today = new Date();
         today.setHours(0, 0, 0, 0);
-        const todaySessions = sessions.filter(s => {
-            const sessionDate = new Date(s.updatedAt);
+        const todaySessions = sessionItems.filter(s => {
+            const sessionDate = new Date(s.session.updatedAt);
             return sessionDate >= today;
         }).length;
         
@@ -50,7 +51,6 @@ export default function StatsScreen() {
                     options={{
                         header: NavigationHeader,
                         headerTitle: 'Statistics',
-                        headerSubtitle: 'Loading data...',
                     }}
                 />
                 <View style={styles.loadingContainer}>
@@ -66,7 +66,6 @@ export default function StatsScreen() {
                 options={{
                     header: NavigationHeader,
                     headerTitle: 'Statistics',
-                    headerSubtitle: 'Your Happy usage overview',
                 }}
             />
             <ScrollView 
@@ -76,7 +75,7 @@ export default function StatsScreen() {
                     { paddingBottom: insets.bottom + 20 }
                 ]}
             >
-                <View style={layoutConstraints.centered}>
+                <View style={{ maxWidth: layout.maxWidth, alignSelf: 'center', width: '100%' }}>
                     {/* Summary Section */}
                     <Text style={styles.sectionTitle}>Overview</Text>
                     

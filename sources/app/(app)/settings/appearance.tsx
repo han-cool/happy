@@ -41,7 +41,6 @@ export default function AppearanceSettingsScreen() {
             const deviceLanguage = deviceLocale.split('-')[0].toLowerCase();
             const detectedLanguageName = deviceLanguage === 'ru' ? t('settingsLanguage.languages.ru') :
                                         deviceLanguage === 'pl' ? t('settingsLanguage.languages.pl') :
-                                        deviceLanguage === 'es' ? t('settingsLanguage.languages.es') :
                                         deviceLanguage === 'vi' ? t('settingsLanguage.languages.vi') :
                                         t('settingsLanguage.languages.en');
             return `${t('settingsLanguage.automatic')} (${detectedLanguageName})`;
@@ -51,8 +50,6 @@ export default function AppearanceSettingsScreen() {
             return t('settingsLanguage.languages.ru');
         } else if (preferredLanguage === 'pl') {
             return t('settingsLanguage.languages.pl');
-        } else if (preferredLanguage === 'es') {
-            return t('settingsLanguage.languages.es');
         } else if (preferredLanguage === 'vi') {
             return t('settingsLanguage.languages.vi');
         }

@@ -111,7 +111,7 @@ function Authenticated() {
                             >
                                 <StatsCard
                                     title="Active Sessions"
-                                    value={sessionListViewData.filter(s => s.status === 'active').length}
+                                    value={sessionListViewData.filter(s => s.type === 'session' && s.session.active).length}
                                     subtitle="Currently active"
                                     icon="flash-outline"
                                     onPress={() => router.push('/stats')}
@@ -119,9 +119,10 @@ function Authenticated() {
                                 <StatsCard
                                     title="Today"
                                     value={sessionListViewData.filter(s => {
+                                        if (s.type !== 'session') return false;
                                         const today = new Date();
                                         today.setHours(0, 0, 0, 0);
-                                        return new Date(s.updatedAt) >= today;
+                                        return new Date(s.session.updatedAt) >= today;
                                     }).length}
                                     subtitle="Sessions today"
                                     icon="today-outline"

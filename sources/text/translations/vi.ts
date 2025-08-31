@@ -261,6 +261,8 @@ export const vi = {
         restartNow: 'Khởi động lại ngay',
         languages: {
             en: 'English',
+            ru: 'Русский',
+            pl: 'Polski',
             vi: 'Tiếng Việt',
         }
     },
@@ -339,23 +341,29 @@ export const vi = {
     },
 
     server: {
-        // Used by Server Configuration screen
-        title: 'Cấu hình máy chủ',
-        currentServer: 'Máy chủ hiện tại',
+        // Used by Server Configuration screen (app/(app)/server.tsx)
+        serverConfiguration: 'Cấu hình máy chủ',
+        enterServerUrl: 'Vui lòng nhập URL máy chủ',
+        notValidD3AIServer: 'Không phải máy chủ D3 AI hợp lệ',
         changeServer: 'Đổi máy chủ',
-        serverUrl: 'URL máy chủ',
-        testConnection: 'Kiểm tra kết nối',
-        connectionSuccessful: 'Kết nối thành công',
-        connectionFailed: 'Kết nối thất bại',
+        continueWithServer: 'Tiếp tục với máy chủ này?',
+        resetToDefault: 'Đặt lại về mặc định',
+        resetServerDefault: 'Đặt lại máy chủ về mặc định?',
+        validating: 'Đang xác thực...',
+        validatingServer: 'Đang xác thực máy chủ...',
+        serverReturnedError: 'Máy chủ trả về lỗi',
+        failedToConnectToServer: 'Không thể kết nối với máy chủ',
+        currentlyUsingCustomServer: 'Hiện đang sử dụng máy chủ tùy chỉnh',
+        customServerUrlLabel: 'URL máy chủ tùy chỉnh',
+        advancedFeatureFooter: "Đây là tính năng nâng cao. Chỉ thay đổi máy chủ nếu bạn biết mình đang làm gì. Bạn sẽ cần đăng xuất và đăng nhập lại sau khi thay đổi máy chủ."
     },
 
     welcome: {
-        title: 'Chào mừng đến với D3 AI',
-        subtitle: 'Điều khiển AI Assistant Platform từ bất cứ đâu',
+        title: 'AI Assistant Platform',
+        subtitle: 'Mã hóa đầu cuối và tài khoản của bạn chỉ được lưu trữ trên thiết bị của bạn.',
         createAccount: 'Tạo tài khoản',
         linkOrRestoreAccount: 'Liên kết hoặc khôi phục tài khoản',
-        alreadyHaveAccount: 'Đã có tài khoản?',
-        signIn: 'Đăng nhập',
+        loginWithMobileApp: 'Đăng nhập bằng ứng dụng di động',
     },
 
     restore: {
@@ -390,45 +398,108 @@ export const vi = {
     },
 
     modals: {
-        confirm: 'Xác nhận',
-        cancel: 'Hủy',
-        delete: 'Xóa',
-        save: 'Lưu',
-        discard: 'Hủy bỏ',
-        apply: 'Áp dụng',
-        close: 'Đóng',
-        areYouSure: 'Bạn có chắc chắn không?',
-        unsavedChanges: 'Bạn có thay đổi chưa lưu. Bạn có muốn lưu không?',
-        deleteConfirmation: 'Hành động này không thể hoàn tác.',
+        // Used across connect flows and settings
+        authenticateTerminal: 'Xác thực Terminal',
+        pasteUrlFromTerminal: 'Dán URL xác thực từ terminal của bạn',
+        deviceLinkedSuccessfully: 'Thiết bị đã liên kết thành công',
+        terminalConnectedSuccessfully: 'Terminal đã kết nối thành công',
+        invalidAuthUrl: 'URL xác thực không hợp lệ',
+        developerMode: 'Chế độ phát triển',
+        developerModeEnabled: 'Đã bật chế độ phát triển',
+        developerModeDisabled: 'Đã tắt chế độ phát triển',
+        disconnectGithub: 'Ngắt kết nối GitHub',
+        disconnectGithubConfirm: 'Bạn có chắc chắn muốn ngắt kết nối tài khoản GitHub của mình?',
+        disconnect: 'Ngắt kết nối',
+        failedToConnectTerminal: 'Không thể kết nối terminal',
+        cameraPermissionsRequiredToConnectTerminal: 'Cần quyền truy cập camera để kết nối terminal',
+        failedToLinkDevice: 'Không thể liên kết thiết bị',
+        cameraPermissionsRequiredToScanQr: 'Cần quyền truy cập camera để quét mã QR'
     },
 
     sessionInfo: {
-        title: 'Thông tin phiên',
-        id: 'ID phiên',
+        // Used by Session Info screen (app/(app)/session/[id]/info.tsx)
+        killSession: 'Hủy phiên',
+        killSessionConfirm: 'Bạn có chắc chắn muốn kết thúc phiên này không?',
+        happySessionIdCopied: 'ID phiên D3 AI đã sao chép vào clipboard',
+        failedToCopySessionId: 'Không thể sao chép ID phiên D3 AI',
+        happySessionId: 'ID phiên D3 AI',
+        claudeCodeSessionId: 'ID phiên Claude Code',
+        claudeCodeSessionIdCopied: 'ID phiên Claude Code đã sao chép vào clipboard',
+        failedToCopyClaudeCodeSessionId: 'Không thể sao chép ID phiên Claude Code',
+        metadataCopied: 'Metadata đã sao chép vào clipboard',
+        failedToCopyMetadata: 'Không thể sao chép metadata',
+        failedToKillSession: 'Không thể hủy phiên',
+        connectionStatus: 'Trạng thái kết nối',
         created: 'Đã tạo',
-        updated: 'Cập nhật',
-        status: 'Trạng thái',
-        messages: 'Tin nhắn',
-        files: 'Tệp tin',
-        context: 'Ngữ cảnh',
-        agentState: 'Trạng thái Agent',
+        lastUpdated: 'Cập nhật lần cuối',
+        sequence: 'Thứ tự',
+        quickActions: 'Hành động nhanh',
+        viewMachine: 'Xem máy',
+        viewMachineSubtitle: 'Xem chi tiết máy và phiên',
+        killSessionSubtitle: 'Kết thúc phiên ngay lập tức',
         metadata: 'Metadata',
+        host: 'Máy chủ',
+        path: 'Đường dẫn',
+        operatingSystem: 'Hệ điều hành',
+        processId: 'ID tiến trình',
+        happyHome: 'Trang chủ D3 AI',
+        copyMetadata: 'Sao chép Metadata',
+        agentState: 'Trạng thái Agent',
+        controlledByUser: 'Được điều khiển bởi người dùng',
+        pendingRequests: 'Yêu cầu đang chờ',
+        activity: 'Hoạt động',
+        thinking: 'Đang suy nghĩ',
+        thinkingSince: 'Suy nghĩ từ',
+        
     },
 
     tools: {
-        view: 'Xem',
-        edit: 'Chỉnh sửa',
-        delete: 'Xóa',
-        create: 'Tạo',
-        update: 'Cập nhật',
-        read: 'Đọc',
-        write: 'Ghi',
-        execute: 'Thực thi',
-        search: 'Tìm kiếm',
-        replace: 'Thay thế',
-        approve: 'Chấp thuận',
-        deny: 'Từ chối',
-        skip: 'Bỏ qua',
+        fullView: {
+            description: 'Mô tả',
+            inputParams: 'Tham số đầu vào',
+            output: 'Đầu ra',
+            error: 'Lỗi',
+            completed: 'Công cụ hoàn thành thành công',
+            noOutput: 'Không có đầu ra nào được tạo',
+            running: 'Công cụ đang chạy...',
+            rawJsonDevMode: 'JSON thô (Chế độ phát triển)',
+        },
+        taskView: {
+            initializing: 'Đang khởi tạo agent...',
+            moreTools: ({ count }: { count: number }) => `+${count} công cụ khác`,
+        },
+        multiEdit: {
+            editNumber: ({ index, total }: { index: number; total: number }) => `Chỉnh sửa ${index} trong ${total}`,
+            replaceAll: 'Thay thế tất cả',
+        },
+        names: {
+            task: 'Nhiệm vụ',
+            terminal: 'Terminal',
+            searchFiles: 'Tìm tệp',
+            search: 'Tìm kiếm',
+            searchContent: 'Tìm nội dung',
+            listFiles: 'Liệt kê tệp',
+            planProposal: 'Đề xuất kế hoạch',
+            readFile: 'Đọc tệp',
+            editFile: 'Chỉnh sửa tệp',
+            writeFile: 'Ghi tệp',
+            fetchUrl: 'Lấy URL',
+            readNotebook: 'Đọc notebook',
+            editNotebook: 'Chỉnh sửa notebook',
+            todoList: 'Danh sách việc cần làm',
+            webSearch: 'Tìm kiếm web',
+        },
+        desc: {
+            terminalCmd: ({ cmd }: { cmd: string }) => `Terminal(cmd: ${cmd})`,
+            searchPattern: ({ pattern }: { pattern: string }) => `Tìm(pattern: ${pattern})`,
+            searchPath: ({ basename }: { basename: string }) => `Tìm(path: ${basename})`,
+            fetchUrlHost: ({ host }: { host: string }) => `Lấy URL(url: ${host})`,
+            editNotebookMode: ({ path, mode }: { path: string; mode: string }) => `Chỉnh sửa Notebook(file: ${path}, mode: ${mode})`,
+            todoListCount: ({ count }: { count: number }) => `Danh sách việc cần làm(count: ${count})`,
+            webSearchQuery: ({ query }: { query: string }) => `Tìm kiếm web(query: ${query})`,
+            grepPattern: ({ pattern }: { pattern: string }) => `grep(pattern: ${pattern})`,
+            multiEditEdits: ({ path, count }: { path: string; count: number }) => `${path} (${count} chỉnh sửa)`,
+        }
     },
 
     fileTypes: {
@@ -460,6 +531,14 @@ export const vi = {
     },
 
     components: {
+        emptyMainScreen: {
+            // Used by EmptyMainScreen component
+            readyToCode: 'Sẵn sàng để code?',
+            installCli: 'Cài đặt D3 AI CLI',
+            runIt: 'Chạy nó',
+            scanQrCode: 'Quét mã QR',
+            openCamera: 'Mở camera',
+        },
         emptyState: {
             noData: 'Không có dữ liệu',
             noResults: 'Không có kết quả',
@@ -492,15 +571,11 @@ export const vi = {
     },
 
     navigation: {
-        home: 'Trang chủ',
-        settings: 'Cài đặt',
-        profile: 'Hồ sơ',
-        help: 'Trợ giúp',
-        about: 'Giới thiệu',
-        logout: 'Đăng xuất',
-        back: 'Quay lại',
-        forward: 'Tiếp',
-        refresh: 'Làm mới',
+        // Navigation titles and screen headers
+        connectTerminal: 'Kết nối Terminal',
+        linkNewDevice: 'Liên kết thiết bị mới', 
+        restoreWithSecretKey: 'Khôi phục với khóa bí mật',
+        whatsNew: "Có gì mới",
     },
 
     actions: {
@@ -647,4 +722,116 @@ export const vi = {
         linkProcessedLocally: 'Liên kết được xử lý cục bộ trong trình duyệt',
         linkProcessedOnDevice: 'Liên kết được xử lý cục bộ trên thiết bị',
     },
+
+    agentInput: {
+        permissionMode: {
+            title: 'CHẾ ĐỘ QUYỀN',
+            default: 'Mặc định',
+            acceptEdits: 'Chấp nhận chỉnh sửa',
+            plan: 'Chế độ kế hoạch',
+            bypassPermissions: 'Chế độ Yolo',
+            badgeAcceptAllEdits: 'Chấp nhận tất cả chỉnh sửa',
+            badgeBypassAllPermissions: 'Bỏ qua tất cả quyền',
+            badgePlanMode: 'Chế độ kế hoạch',
+        },
+        model: {
+            title: 'MÔ HÌNH',
+            default: 'Sử dụng cài đặt CLI',
+            adaptiveUsage: 'Opus tới 50% sử dụng, sau đó Sonnet',
+            sonnet: 'Sonnet',
+            opus: 'Opus',
+        },
+        context: {
+            remaining: ({ percent }: { percent: number }) => `Còn ${percent}%`,
+        },
+        suggestion: {
+            fileLabel: 'TỆP',
+            folderLabel: 'THƯ MỤC',
+        }
+    },
+
+    machineLauncher: {
+        showLess: 'Hiển thị ít hơn',
+        showAll: ({ count }: { count: number }) => `Hiển thị tất cả (${count} đường dẫn)`,
+        enterCustomPath: 'Nhập đường dẫn tùy chỉnh',
+        offlineUnableToSpawn: 'Không thể tạo phiên mới, ngoại tuyến',
+    },
+
+    sidebar: {
+        sessionsTitle: 'Phiên làm việc',
+    },
+
+    toolView: {
+        input: 'Đầu vào',
+        output: 'Đầu ra',
+    },
+
+    files: {
+        searchPlaceholder: 'Tìm kiếm tệp...',
+        detachedHead: 'detached HEAD',
+        summary: ({ staged, unstaged }: { staged: number; unstaged: number }) => `${staged} đã staged • ${unstaged} chưa staged`,
+        notRepo: 'Không phải repository git',
+        notUnderGit: 'Thư mục này không nằm trong hệ thống quản lý phiên bản git',
+        searching: 'Đang tìm kiếm tệp...',
+        noFilesFound: 'Không tìm thấy tệp nào',
+        noFilesInProject: 'Không có tệp trong dự án',
+        tryDifferentTerm: 'Thử từ khóa tìm kiếm khác',
+        searchResults: ({ count }: { count: number }) => `Kết quả tìm kiếm (${count})`,
+        projectRoot: 'Thư mục gốc dự án',
+        stagedChanges: ({ count }: { count: number }) => `Thay đổi đã staged (${count})`,
+        unstagedChanges: ({ count }: { count: number }) => `Thay đổi chưa staged (${count})`,
+        // File viewer strings
+        loadingFile: ({ fileName }: { fileName: string }) => `Đang tải ${fileName}...`,
+        binaryFile: 'Tệp nhị phân',
+        cannotDisplayBinary: 'Không thể hiển thị nội dung tệp nhị phân',
+        diff: 'So sánh',
+        file: 'Tệp',
+        fileEmpty: 'Tệp trống',
+        noChanges: 'Không có thay đổi để hiển thị',
+    },
+
+    review: {
+        // Used by utils/requestReview.ts
+        enjoyingApp: 'Bạn có thích ứng dụng này không?',
+        feedbackPrompt: "Chúng tôi rất muốn nghe phản hồi từ bạn!",
+        yesILoveIt: 'Có, tôi yêu thích nó!',
+        notReally: 'Không thực sự'
+    },
+
+    items: {
+        // Used by Item component for copy toast
+        copiedToClipboard: ({ label }: { label: string }) => `${label} đã sao chép vào clipboard`
+    },
+
+    machine: {
+        launchNewSessionInDirectory: 'Khởi tạo phiên mới trong thư mục',
+        daemon: 'Daemon',
+        status: 'Trạng thái',
+        stopDaemon: 'Dừng Daemon',
+        lastKnownPid: 'PID cuối cùng đã biết',
+        lastKnownHttpPort: 'Cổng HTTP cuối cùng đã biết',
+        startedAt: 'Bắt đầu lúc',
+        cliVersion: 'Phiên bản CLI',
+        daemonStateVersion: 'Phiên bản trạng thái Daemon',
+        activeSessions: ({ count }: { count: number }) => `Phiên hoạt động (${count})`,
+        machineGroup: 'Máy',
+        host: 'Máy chủ',
+        machineId: 'ID máy',
+        username: 'Tên người dùng',
+        homeDirectory: 'Thư mục home',
+        platform: 'Nền tảng',
+        architecture: 'Kiến trúc',
+        lastSeen: 'Lần thấy cuối',
+        never: 'Không bao giờ',
+        metadataVersion: 'Phiên bản metadata',
+        untitledSession: 'Phiên không tên',
+        back: 'Quay lại',
+    },
+
+    message: {
+        switchedToMode: ({ mode }: { mode: string }) => `Đã chuyển sang chế độ ${mode}`,
+        unknownEvent: 'Sự kiện không xác định',
+        usageLimitUntil: ({ time }: { time: string }) => `Giới hạn sử dụng đến ${time}`,
+        unknownTime: 'thời gian không xác định',
+    }
 };

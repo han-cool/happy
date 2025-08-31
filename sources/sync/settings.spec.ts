@@ -101,11 +101,17 @@ describe('settings', () => {
                 inferenceOpenAIKey: null,
                 experiments: false,
                 alwaysShowContextSize: false,
-                avatarStyle: 'gradient',
+                avatarStyle: 'brutalist',
                 reviewPromptAnswered: false,
                 reviewPromptLikedApp: null,
                 voiceAssistantLanguage: null,
                 preferredLanguage: null,
+                showHomeStats: false,
+                enableNotifications: true,
+                featureSupportUs: true,
+                featureBuyMeCoffee: true,
+                featureSendFeedback: true,
+                featureAIBoard: true,
             };
             const delta: Partial<Settings> = {
                 viewInline: true
@@ -124,6 +130,12 @@ describe('settings', () => {
                 reviewPromptLikedApp: null,
                 voiceAssistantLanguage: null,
                 preferredLanguage: null,
+                showHomeStats: false,
+                enableNotifications: true,
+                featureSupportUs: true,
+                featureBuyMeCoffee: true,
+                featureSendFeedback: true,
+                featureAIBoard: true,
             });
         });
 
@@ -137,11 +149,17 @@ describe('settings', () => {
                 inferenceOpenAIKey: null,
                 experiments: false,
                 alwaysShowContextSize: false,
-                avatarStyle: 'gradient',
+                avatarStyle: 'brutalist',
                 reviewPromptAnswered: false,
                 reviewPromptLikedApp: null,
                 voiceAssistantLanguage: null,
                 preferredLanguage: null,
+                showHomeStats: false,
+                enableNotifications: true,
+                featureSupportUs: true,
+                featureBuyMeCoffee: true,
+                featureSendFeedback: true,
+                featureAIBoard: true,
             };
             const delta: Partial<Settings> = {};
             expect(applySettings(currentSettings, delta)).toEqual({
@@ -160,11 +178,17 @@ describe('settings', () => {
                 inferenceOpenAIKey: null,
                 experiments: false,
                 alwaysShowContextSize: false,
-                avatarStyle: 'gradient',
+                avatarStyle: 'brutalist',
                 reviewPromptAnswered: false,
                 reviewPromptLikedApp: null,
                 voiceAssistantLanguage: null,
                 preferredLanguage: null,
+                showHomeStats: false,
+                enableNotifications: true,
+                featureSupportUs: true,
+                featureBuyMeCoffee: true,
+                featureSendFeedback: true,
+                featureAIBoard: true,
             };
             const delta: Partial<Settings> = {
                 viewInline: false
@@ -183,6 +207,12 @@ describe('settings', () => {
                 reviewPromptLikedApp: null,
                 voiceAssistantLanguage: null,
                 preferredLanguage: null,
+                showHomeStats: false,
+                enableNotifications: true,
+                featureSupportUs: true,
+                featureBuyMeCoffee: true,
+                featureSendFeedback: true,
+                featureAIBoard: true,
             });
         });
 
@@ -196,11 +226,17 @@ describe('settings', () => {
                 inferenceOpenAIKey: null,
                 experiments: false,
                 alwaysShowContextSize: false,
-                avatarStyle: 'gradient',
+                avatarStyle: 'brutalist',
                 reviewPromptAnswered: false,
                 reviewPromptLikedApp: null,
                 voiceAssistantLanguage: null,
                 preferredLanguage: null,
+                showHomeStats: false,
+                enableNotifications: true,
+                featureSupportUs: true,
+                featureBuyMeCoffee: true,
+                featureSendFeedback: true,
+                featureAIBoard: true,
             };
             expect(applySettings(currentSettings, {})).toEqual({
                 ...settingsDefaults,
@@ -233,11 +269,17 @@ describe('settings', () => {
                 inferenceOpenAIKey: null,
                 experiments: false,
                 alwaysShowContextSize: false,
-                avatarStyle: 'gradient',
+                avatarStyle: 'brutalist',
                 reviewPromptAnswered: false,
                 reviewPromptLikedApp: null,
                 voiceAssistantLanguage: null,
                 preferredLanguage: null,
+                showHomeStats: false,
+                enableNotifications: true,
+                featureSupportUs: true,
+                featureBuyMeCoffee: true,
+                featureSendFeedback: true,
+                featureAIBoard: true,
             };
             const delta: any = {
                 viewInline: false,
@@ -278,7 +320,18 @@ describe('settings', () => {
                 analyticsOptOut: false,
                 inferenceOpenAIKey: null,
                 experiments: false,
-                alwaysShowContextSize: false
+                alwaysShowContextSize: false,
+                showHomeStats: false,
+                enableNotifications: true,
+                avatarStyle: 'brutalist',
+                reviewPromptAnswered: false,
+                reviewPromptLikedApp: null,
+                voiceAssistantLanguage: null,
+                preferredLanguage: null,
+                featureSupportUs: true,
+                featureBuyMeCoffee: true,
+                featureSendFeedback: true,
+                featureAIBoard: true,
             });
         });
 

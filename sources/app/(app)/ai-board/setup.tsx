@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, Platform, TextInput } from 'react-native';
+import { View, Text, Platform, TextInput, Pressable } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useRouter } from 'expo-router';
@@ -288,22 +288,21 @@ export default function AIBoardSetup() {
                         <ItemList>
                             {/* GitHub Configuration */}
                             <ItemGroup 
-                                title={
-                                    <View style={styles.providerHeader}>
-                                        <View style={styles.providerIcon}>
-                                            <Ionicons name="logo-github" size={20} color="#333" />
-                                        </View>
-                                        <Text style={styles.providerTitle}>GitHub</Text>
-                                        <Text style={[
-                                            styles.providerStatus,
-                                            config.github.configured ? styles.statusConfigured : styles.statusNotConfigured
-                                        ]}>
-                                            {config.github.configured ? t('aiBoard.setup.configured') : t('aiBoard.setup.notConfigured')}
-                                        </Text>
-                                    </View>
-                                }
+                                title="GitHub"
                                 footer={t('aiBoard.setup.githubInstructions')}
                             >
+                                <View style={styles.providerHeader}>
+                                    <View style={styles.providerIcon}>
+                                        <Ionicons name="logo-github" size={20} color="#333" />
+                                    </View>
+                                    <Text style={styles.providerTitle}>GitHub</Text>
+                                    <Text style={[
+                                        styles.providerStatus,
+                                        config.github.configured ? styles.statusConfigured : styles.statusNotConfigured
+                                    ]}>
+                                        {config.github.configured ? t('aiBoard.setup.configured') : t('aiBoard.setup.notConfigured')}
+                                    </Text>
+                                </View>
                                 <View style={styles.inputContainer}>
                                     <TextInput
                                         style={styles.textInput}
@@ -335,22 +334,21 @@ export default function AIBoardSetup() {
 
                             {/* GitLab Configuration */}
                             <ItemGroup 
-                                title={
-                                    <View style={styles.providerHeader}>
-                                        <View style={styles.providerIcon}>
-                                            <Ionicons name="logo-gitlab" size={20} color="#FC6D26" />
-                                        </View>
-                                        <Text style={styles.providerTitle}>GitLab</Text>
-                                        <Text style={[
-                                            styles.providerStatus,
-                                            config.gitlab.configured ? styles.statusConfigured : styles.statusNotConfigured
-                                        ]}>
-                                            {config.gitlab.configured ? t('aiBoard.setup.configured') : t('aiBoard.setup.notConfigured')}
-                                        </Text>
-                                    </View>
-                                }
+                                title="GitLab"
                                 footer={t('aiBoard.setup.gitlabInstructions')}
                             >
+                                <View style={styles.providerHeader}>
+                                    <View style={styles.providerIcon}>
+                                        <Ionicons name="logo-gitlab" size={20} color="#FC6D26" />
+                                    </View>
+                                    <Text style={styles.providerTitle}>GitLab</Text>
+                                    <Text style={[
+                                        styles.providerStatus,
+                                        config.gitlab.configured ? styles.statusConfigured : styles.statusNotConfigured
+                                    ]}>
+                                        {config.gitlab.configured ? t('aiBoard.setup.configured') : t('aiBoard.setup.notConfigured')}
+                                    </Text>
+                                </View>
                                 <View style={styles.inputContainer}>
                                     <Text style={[styles.instructionText, { marginBottom: 8 }]}>
                                         {t('aiBoard.setup.gitlabDomainLabel')}
@@ -380,7 +378,7 @@ export default function AIBoardSetup() {
                                     <Text style={styles.instructionText}>
                                         {t('aiBoard.setup.gitlabTokenInstructions')}{' '}
                                         <Text style={styles.urlText}>
-                                            {config.gitlab.domain || 'gitlab.com'}/-/profile/personal_access_tokens
+                                            {(config.gitlab.domain || 'gitlab.com') + '/-/profile/personal_access_tokens'}
                                         </Text>
                                     </Text>
                                     <Pressable

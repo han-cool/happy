@@ -55,6 +55,7 @@ class Sync {
     // Generic locking mechanism
     private recalculationLockCount = 0;
     private lastRecalculationTime = 0;
+    private lastAppActivationTime = 0;
 
     constructor() {
         this.sessionsSync = new InvalidateSync(this.fetchSessions);
@@ -76,15 +77,28 @@ class Sync {
         // Listen for app state changes to refresh purchases
         AppState.addEventListener('change', (nextAppState) => {
             if (nextAppState === 'active') {
-                log.log('📱 App became active - refreshing purchases and locking recalculation for 5s');
+                const now = Date.now();
+                
+                // Debounce app activation to prevent excessive operations during development
+                if (this.lastAppActivationTime && now - this.lastAppActivationTime < 2000) {
+                    log.log('📱 App activation debounced - too recent');
+                    return;
+                }
+                this.lastAppActivationTime = now;
+                
+                log.log('📱 App became active - refreshing purchases and locking recalculation');
                 this.purchasesSync.invalidate();
                 
-                // Lock recalculation for 5 seconds after activation to prevent immediate session expiration
+                // Lock recalculation after activation to prevent immediate session expiration
+                // Shorter period in development for better performance
+                const isDevelopment = __DEV__;
+                const lockPeriod = isDevelopment ? 1000 : 5000; // 1s in dev, 5s in production
+                
                 const unlock = this.acquireRecalculationLock();
                 setTimeout(() => {
                     log.log('📱 App activation grace period ended - releasing lock');
                     unlock();
-                }, 5000);
+                }, lockPeriod);
             } else {
                 log.log(`📱 App state changed to: ${nextAppState}`);
             }
@@ -895,7 +909,11 @@ class Sync {
 
         // Subscribe to connection state changes
         apiSocket.onReconnected(() => {
-            log.log('🔌 Socket reconnected - acquiring lock for 3s stabilization period');
+            // Shorter stabilization period in development for better performance
+            const isDevelopment = __DEV__;
+            const stabilizationPeriod = isDevelopment ? 1000 : 3000; // 1s in dev, 3s in production
+            
+            log.log(`🔌 Socket reconnected - acquiring lock for ${stabilizationPeriod}ms stabilization period`);
             const unlock = this.acquireRecalculationLock();
             
             this.sessionsSync.invalidate();
@@ -914,7 +932,7 @@ class Sync {
             setTimeout(() => {
                 log.log('🔌 Socket reconnection stabilization period ended - releasing lock');
                 unlock();
-            }, 3000);
+            }, stabilizationPeriod);
         });
 
         // Recalculate online sessions every 10 seconds (for 2-minute disconnect timeout)
@@ -934,10 +952,13 @@ class Sync {
                 return;
             }
             
-            // Check debouncing
-            if (this.lastRecalculationTime && now - this.lastRecalculationTime < 5000) {
+            // Check debouncing - shorter in development for better responsiveness
+            const isDevelopment = __DEV__;
+            const debounceTime = isDevelopment ? 2000 : 5000; // 2s in dev, 5s in production
+            
+            if (this.lastRecalculationTime && now - this.lastRecalculationTime < debounceTime) {
                 const timeSinceLastMS = now - this.lastRecalculationTime;
-                log.log(`⏰ Recalculation blocked - debouncing (${timeSinceLastMS}ms since last, need 5000ms)`);
+                log.log(`⏰ Recalculation blocked - debouncing (${timeSinceLastMS}ms since last, need ${debounceTime}ms)`);
                 return;
             }
             
