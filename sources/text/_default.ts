@@ -153,6 +153,11 @@ export const en = {
         sendFeedback: 'Send Feedback',
         sendFeedbackEnabled: 'Feedback form available',
         sendFeedbackDisabled: 'Feedback form hidden',
+        aiFeatures: 'AI & Automation',
+        aiFeaturesDescription: 'Features for AI-powered task management and automation.',
+        aiBoard: 'AI Board',
+        aiBoardEnabled: 'Kanban board for AI tasks enabled',
+        aiBoardDisabled: 'AI task management disabled',
         webFeatures: 'Web Features',
         webFeaturesDescription: 'Features available only in the web version of the app.',
         commandPalette: 'Command Palette',
@@ -188,6 +193,64 @@ export const en = {
             improve: 'Suggest Improvement',
             feature: 'Request Feature',
             other: 'Other Feedback',
+        },
+    },
+
+    aiBoard: {
+        // AI Board main screen
+        title: 'AI Board',
+        subtitle: 'Track AI-assigned tasks across repositories',
+        featureDisabled: 'AI Board Disabled',
+        featureDisabledDescription: 'Enable AI Board in Settings > Features to track AI-assigned tasks from GitHub and GitLab.',
+        enableFeature: 'Enable AI Board',
+        welcomeTitle: 'Welcome to AI Board',
+        welcomeDescription: 'Connect your GitHub and GitLab accounts to start tracking AI-assigned tasks with labels like "ai-d3".',
+        setupProviders: 'Setup Providers',
+        selectRepository: 'Select Repository',
+        selectRepositoryFooter: 'Choose a repository to view AI-assigned tasks.',
+        chooseRepository: 'Choose Repository',
+        noRepositorySelected: 'No repository selected',
+        kanbanComingSoon: 'Kanban Board',
+        kanbanComingSoonDescription: 'The kanban board interface is being built. Check back soon!',
+        
+        // Task statuses
+        todo: 'Todo',
+        inProgress: 'In Progress', 
+        done: 'Done',
+        
+        // Providers
+        github: 'GitHub',
+        gitlab: 'GitLab',
+        
+        // Setup
+        setup: {
+            title: 'Setup AI Board',
+            subtitle: 'Configure your GitHub and GitLab providers',
+            configured: 'Configured',
+            notConfigured: 'Not Configured',
+            testConnection: 'Test Connection',
+            testing: 'Testing...',
+            testSuccess: 'Connection Successful',
+            testFailed: 'Connection Failed',
+            saveConfiguration: 'Save Configuration',
+            saveError: 'Failed to save configuration. Please try again.',
+            
+            // GitHub
+            githubInstructions: 'Enter your GitHub personal access token with "repo" scope to access repository issues.',
+            githubTokenPlaceholder: 'ghp_xxxxxxxxxxxxxxxxxxxx',
+            githubTokenInstructions: 'Create a personal access token at',
+            githubConnected: ({ username }: { username: string }) => `Successfully connected to GitHub as ${username}`,
+            githubConnectionError: 'Failed to connect to GitHub. Please check your token.',
+            
+            // GitLab  
+            gitlabInstructions: 'Enter your GitLab personal access token with "api" scope. Leave domain empty for gitlab.com.',
+            gitlabDomainLabel: 'GitLab Domain (optional)',
+            gitlabDomainPlaceholder: 'gitlab.example.com',
+            gitlabTokenLabel: 'Personal Access Token',
+            gitlabTokenPlaceholder: 'glpat-xxxxxxxxxxxxxxxxxxxx',
+            gitlabTokenInstructions: 'Create a personal access token at',
+            gitlabConnected: ({ username, domain }: { username: string; domain: string }) => `Successfully connected to GitLab as ${username} on ${domain}`,
+            gitlabConnectionError: ({ domain }: { domain: string }) => `Failed to connect to GitLab on ${domain}. Please check your token and domain.`,
         },
     },
 

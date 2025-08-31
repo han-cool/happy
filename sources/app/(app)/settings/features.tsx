@@ -17,6 +17,7 @@ export default function FeaturesSettingsScreen() {
     const [featureSupportUs, setFeatureSupportUs] = useSettingMutable('featureSupportUs');
     const [featureBuyMeCoffee, setFeatureBuyMeCoffee] = useSettingMutable('featureBuyMeCoffee');
     const [featureSendFeedback, setFeatureSendFeedback] = useSettingMutable('featureSendFeedback');
+    const [featureAIBoard, setFeatureAIBoard] = useSettingMutable('featureAIBoard');
     
     return (
         <ItemList style={{ paddingTop: 0 }}>
@@ -114,6 +115,25 @@ export default function FeaturesSettingsScreen() {
                         <Switch
                             value={featureSendFeedback}
                             onValueChange={setFeatureSendFeedback}
+                        />
+                    }
+                    showChevron={false}
+                />
+            </ItemGroup>
+
+            {/* AI & Automation Features */}
+            <ItemGroup 
+                title={t('settingsFeatures.aiFeatures')}
+                footer={t('settingsFeatures.aiFeaturesDescription')}
+            >
+                <Item
+                    title={t('settingsFeatures.aiBoard')}
+                    subtitle={featureAIBoard ? t('settingsFeatures.aiBoardEnabled') : t('settingsFeatures.aiBoardDisabled')}
+                    icon={<Ionicons name="grid-outline" size={29} color="#5856D6" />}
+                    rightElement={
+                        <Switch
+                            value={featureAIBoard}
+                            onValueChange={setFeatureAIBoard}
                         />
                     }
                     showChevron={false}

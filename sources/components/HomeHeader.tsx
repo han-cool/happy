@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Header } from './navigation/Header';
-import { useSocketStatus } from '@/sync/storage';
+import { useSocketStatus, useSetting } from '@/sync/storage';
 import { Pressable, Text, View } from 'react-native';
 import { Typography } from '@/constants/Typography';
 import { StatusDot } from './StatusDot';
@@ -15,6 +15,10 @@ const stylesheet = StyleSheet.create((theme, runtime) => ({
         marginRight: 8,
         width: 24,
         height: 24,
+    },
+    headerButtonsContainer: {
+        flexDirection: 'row',
+        alignItems: 'center',
     },
     iconButton: {
         color: theme.colors.header.tint,
@@ -104,29 +108,35 @@ function HeaderRight() {
     const router = useRouter();
     const styles = stylesheet;
     const { theme } = useUnistyles();
+    const isAIBoardEnabled = useSetting('featureAIBoard');
 
-    // return (
-    //     <Pressable
-    //         onPress={() => router.push('/settings')}
-    //         hitSlop={15}
-    //         style={styles.headerButton}
-    //     >
-    //         <Ionicons name="settings-outline" size={24} color={theme.colors.header.tint} />
-    //     </Pressable>
-    // );
     return (
-        <Pressable
-            onPress={() => router.push('/settings')}
-            hitSlop={15}
-            style={styles.headerButton}
-        >
-            <Image
-                source={require('@/assets/images/brutalist/Brutalism 9.png')}
-                contentFit="contain"
-                style={[{ width: 32, height: 32, marginRight: 12, marginTop: -2 }]}
-                tintColor={theme.colors.header.tint}
-            />
-        </Pressable>
+        <View style={styles.headerButtonsContainer}>
+            {/* AI Board Button - only show if enabled */}
+            {isAIBoardEnabled && (
+                <Pressable
+                    onPress={() => router.push('/ai-board')}
+                    hitSlop={15}
+                    style={styles.headerButton}
+                >
+                    <Ionicons name="grid-outline" size={24} color={theme.colors.header.tint} />
+                </Pressable>
+            )}
+            
+            {/* Settings Button */}
+            <Pressable
+                onPress={() => router.push('/settings')}
+                hitSlop={15}
+                style={styles.headerButton}
+            >
+                <Image
+                    source={require('@/assets/images/brutalist/Brutalism 9.png')}
+                    contentFit="contain"
+                    style={[{ width: 32, height: 32, marginRight: 12, marginTop: -2 }]}
+                    tintColor={theme.colors.header.tint}
+                />
+            </Pressable>
+        </View>
     );
 }
 

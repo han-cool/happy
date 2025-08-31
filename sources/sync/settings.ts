@@ -23,6 +23,7 @@ export const SettingsSchema = z.object({
     featureSupportUs: z.boolean().describe('Whether to show Support Us subscription option'),
     featureBuyMeCoffee: z.boolean().describe('Whether to show Buy Me a Coffee donation option'),
     featureSendFeedback: z.boolean().describe('Whether to show Send Feedback option'),
+    featureAIBoard: z.boolean().describe('Whether to enable AI Board for tracking AI-assigned tasks'),
 });
 
 //
@@ -63,6 +64,7 @@ export const settingsDefaults: Settings = {
     featureSupportUs: true,
     featureBuyMeCoffee: true,
     featureSendFeedback: true,
+    featureAIBoard: true,
 };
 Object.freeze(settingsDefaults);
 

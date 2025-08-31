@@ -148,6 +148,11 @@ export const vi = {
         sendFeedback: 'Gửi phản hồi',
         sendFeedbackEnabled: 'Biểu mẫu phản hồi có sẵn',
         sendFeedbackDisabled: 'Biểu mẫu phản hồi bị ẩn',
+        aiFeatures: 'AI & Tự động hóa',
+        aiFeaturesDescription: 'Các tính năng quản lý tác vụ và tự động hóa được hỗ trợ bởi AI.',
+        aiBoard: 'Bảng AI',
+        aiBoardEnabled: 'Bảng kanban cho tác vụ AI đã bật',
+        aiBoardDisabled: 'Quản lý tác vụ AI đã tắt',
         webFeatures: 'Tính năng Web',
         webFeaturesDescription: 'Tính năng chỉ có trong phiên bản web của ứng dụng.',
         commandPalette: 'Bảng lệnh',
@@ -183,6 +188,64 @@ export const vi = {
             improve: 'Đề xuất cải tiến',
             feature: 'Yêu cầu tính năng',
             other: 'Phản hồi khác',
+        },
+    },
+
+    aiBoard: {
+        // AI Board main screen
+        title: 'Bảng AI',
+        subtitle: 'Theo dõi tác vụ được giao cho AI qua các kho lưu trữ',
+        featureDisabled: 'Bảng AI đã tắt',
+        featureDisabledDescription: 'Bật Bảng AI trong Cài đặt > Tính năng để theo dõi tác vụ được giao cho AI từ GitHub và GitLab.',
+        enableFeature: 'Bật Bảng AI',
+        welcomeTitle: 'Chào mừng đến với Bảng AI',
+        welcomeDescription: 'Kết nối tài khoản GitHub và GitLab của bạn để bắt đầu theo dõi các tác vụ được giao cho AI với nhãn như "ai-d3".',
+        setupProviders: 'Thiết lập Nhà cung cấp',
+        selectRepository: 'Chọn Kho lưu trữ',
+        selectRepositoryFooter: 'Chọn một kho lưu trữ để xem các tác vụ được giao cho AI.',
+        chooseRepository: 'Chọn Kho lưu trữ',
+        noRepositorySelected: 'Chưa chọn kho lưu trữ',
+        kanbanComingSoon: 'Bảng Kanban',
+        kanbanComingSoonDescription: 'Giao diện bảng kanban đang được xây dựng. Hãy quay lại sớm nhé!',
+        
+        // Task statuses
+        todo: 'Cần làm',
+        inProgress: 'Đang thực hiện',
+        done: 'Hoàn thành',
+        
+        // Providers
+        github: 'GitHub',
+        gitlab: 'GitLab',
+        
+        // Setup
+        setup: {
+            title: 'Thiết lập Bảng AI',
+            subtitle: 'Cấu hình nhà cung cấp GitHub và GitLab',
+            configured: 'Đã cấu hình',
+            notConfigured: 'Chưa cấu hình',
+            testConnection: 'Kiểm tra kết nối',
+            testing: 'Đang kiểm tra...',
+            testSuccess: 'Kết nối thành công',
+            testFailed: 'Kết nối thất bại',
+            saveConfiguration: 'Lưu cấu hình',
+            saveError: 'Không thể lưu cấu hình. Vui lòng thử lại.',
+            
+            // GitHub
+            githubInstructions: 'Nhập mã token truy cập cá nhân GitHub với phạm vi "repo" để truy cập các vấn đề của kho lưu trữ.',
+            githubTokenPlaceholder: 'ghp_xxxxxxxxxxxxxxxxxxxx',
+            githubTokenInstructions: 'Tạo token truy cập cá nhân tại',
+            githubConnected: ({ username }: { username: string }) => `Đã kết nối thành công với GitHub dưới tên ${username}`,
+            githubConnectionError: 'Không thể kết nối với GitHub. Vui lòng kiểm tra token của bạn.',
+            
+            // GitLab
+            gitlabInstructions: 'Nhập mã token truy cập cá nhân GitLab với phạm vi "api". Để trống tên miền cho gitlab.com.',
+            gitlabDomainLabel: 'Tên miền GitLab (tùy chọn)',
+            gitlabDomainPlaceholder: 'gitlab.example.com',
+            gitlabTokenLabel: 'Token truy cập cá nhân',
+            gitlabTokenPlaceholder: 'glpat-xxxxxxxxxxxxxxxxxxxx',
+            gitlabTokenInstructions: 'Tạo token truy cập cá nhân tại',
+            gitlabConnected: ({ username, domain }: { username: string; domain: string }) => `Đã kết nối thành công với GitLab dưới tên ${username} trên ${domain}`,
+            gitlabConnectionError: ({ domain }: { domain: string }) => `Không thể kết nối với GitLab trên ${domain}. Vui lòng kiểm tra token và tên miền.`,
         },
     },
 
@@ -583,267 +646,5 @@ export const vi = {
         clientSideProcessing: 'Xử lý phía Client',
         linkProcessedLocally: 'Liên kết được xử lý cục bộ trong trình duyệt',
         linkProcessedOnDevice: 'Liên kết được xử lý cục bộ trên thiết bị',
-    },
-
-    modals: {
-        // Used across connect flows and settings
-        authenticateTerminal: 'Xác thực Terminal',
-        pasteUrlFromTerminal: 'Dán URL xác thực từ terminal của bạn',
-        deviceLinkedSuccessfully: 'Thiết bị đã được liên kết thành công',
-        terminalConnectedSuccessfully: 'Terminal đã kết nối thành công',
-        invalidAuthUrl: 'URL xác thực không hợp lệ',
-        developerMode: 'Chế độ nhà phát triển',
-        developerModeEnabled: 'Chế độ nhà phát triển đã bật',
-        developerModeDisabled: 'Chế độ nhà phát triển đã tắt',
-        disconnectGithub: 'Ngắt kết nối GitHub',
-        disconnectGithubConfirm: 'Bạn có chắc chắn muốn ngắt kết nối tài khoản GitHub?',
-        disconnect: 'Ngắt kết nối',
-        failedToConnectTerminal: 'Không thể kết nối terminal',
-        cameraPermissionsRequiredToConnectTerminal: 'Cần quyền truy cập camera để kết nối terminal',
-        failedToLinkDevice: 'Không thể liên kết thiết bị',
-        cameraPermissionsRequiredToScanQr: 'Cần quyền truy cập camera để quét mã QR'
-    },
-
-    navigation: {
-        // Navigation titles and screen headers
-        connectTerminal: 'Kết nối Terminal',
-        linkNewDevice: 'Liên kết thiết bị mới',
-        restoreWithSecretKey: 'Khôi phục với khóa bí mật',
-        whatsNew: 'Có gì mới',
-    },
-
-    welcome: {
-        // Main welcome screen for unauthenticated users
-        title: 'Nền tảng trợ lý AI',
-        subtitle: 'Mã hóa đầu cuối và tài khoản của bạn chỉ được lưu trữ trên thiết bị.',
-        createAccount: 'Tạo tài khoản',
-        linkOrRestoreAccount: 'Liên kết hoặc khôi phục tài khoản',
-        loginWithMobileApp: 'Đăng nhập bằng ứng dụng di động',
-    },
-
-    review: {
-        // Used by utils/requestReview.ts
-        enjoyingApp: 'Bạn có thích ứng dụng này?',
-        feedbackPrompt: 'Chúng tôi rất muốn nghe phản hồi của bạn!',
-        yesILoveIt: 'Có, tôi thích nó!',
-        notReally: 'Không thực sự'
-    },
-
-    items: {
-        // Used by Item component for copy toast
-        copiedToClipboard: ({ label }: { label: string }) => `${label} đã được sao chép vào clipboard`
-    },
-
-    machine: {
-        launchNewSessionInDirectory: 'Khởi chạy phiên mới trong thư mục',
-        daemon: 'Daemon',
-        status: 'Trạng thái',
-        stopDaemon: 'Dừng Daemon',
-        lastKnownPid: 'PID cuối cùng biết',
-        lastKnownHttpPort: 'Cổng HTTP cuối cùng biết',
-        startedAt: 'Bắt đầu lúc',
-        cliVersion: 'Phiên bản CLI',
-        daemonStateVersion: 'Phiên bản trạng thái Daemon',
-        activeSessions: ({ count }: { count: number }) => `Phiên hoạt động (${count})`,
-        machineGroup: 'Máy tính',
-        host: 'Máy chủ',
-        machineId: 'ID máy tính',
-        username: 'Tên người dùng',
-        homeDirectory: 'Thư mục home',
-        platform: 'Nền tảng',
-        architecture: 'Kiến trúc',
-        lastSeen: 'Lần cuối thấy',
-        never: 'Không bao giờ',
-        metadataVersion: 'Phiên bản metadata',
-        untitledSession: 'Phiên không có tiêu đề',
-        back: 'Quay lại',
-    },
-
-    message: {
-        switchedToMode: ({ mode }: { mode: string }) => `Đã chuyển sang chế độ ${mode}`,
-        unknownEvent: 'Sự kiện không xác định',
-        usageLimitUntil: ({ time }: { time: string }) => `Đạt giới hạn sử dụng đến ${time}`,
-        unknownTime: 'thời gian không xác định',
-    },
-
-    agentInput: {
-        permissionMode: {
-            title: 'CHẾ ĐỘ QUYỀN',
-            default: 'Mặc định',
-            acceptEdits: 'Chấp nhận chỉnh sửa',
-            plan: 'Chế độ kế hoạch',
-            bypassPermissions: 'Chế độ Yolo',
-            badgeAcceptAllEdits: 'Chấp nhận tất cả chỉnh sửa',
-            badgeBypassAllPermissions: 'Bỏ qua tất cả quyền',
-            badgePlanMode: 'Chế độ kế hoạch',
-        },
-        model: {
-            title: 'MÔ HÌNH',
-            default: 'Sử dụng cài đặt CLI',
-            adaptiveUsage: 'Opus đến 50% sử dụng, sau đó Sonnet',
-            sonnet: 'Sonnet',
-            opus: 'Opus',
-        },
-        context: {
-            remaining: ({ percent }: { percent: number }) => `Còn ${percent}%`,
-        },
-        suggestion: {
-            fileLabel: 'TỆP',
-            folderLabel: 'THƯ MỤC',
-        }
-    },
-
-    machineLauncher: {
-        showLess: 'Hiện ít hơn',
-        showAll: ({ count }: { count: number }) => `Hiện tất cả (${count} đường dẫn)`,
-        enterCustomPath: 'Nhập đường dẫn tùy chỉnh',
-        offlineUnableToSpawn: 'Không thể tạo phiên mới, ngoại tuyến',
-    },
-
-    sidebar: {
-        sessionsTitle: 'Phiên làm việc',
-    },
-
-    toolView: {
-        input: 'Đầu vào',
-        output: 'Đầu ra',
-    },
-
-    tools: {
-        fullView: {
-            description: 'Mô tả',
-            inputParams: 'Tham số đầu vào',
-            output: 'Đầu ra',
-            error: 'Lỗi',
-            completed: 'Công cụ đã hoàn thành thành công',
-            noOutput: 'Không có đầu ra được tạo',
-            running: 'Công cụ đang chạy...',
-            rawJsonDevMode: 'JSON thô (Chế độ phát triển)',
-        },
-        taskView: {
-            initializing: 'Đang khởi tạo agent...',
-            moreTools: ({ count }: { count: number }) => `+${count} ${plural({ count, singular: 'công cụ', plural: 'công cụ' })} khác`,
-        },
-        multiEdit: {
-            editNumber: ({ index, total }: { index: number; total: number }) => `Chỉnh sửa ${index} của ${total}`,
-            replaceAll: 'Thay thế tất cả',
-        },
-        names: {
-            task: 'Tác vụ',
-            terminal: 'Terminal',
-            searchFiles: 'Tìm kiếm tệp',
-            search: 'Tìm kiếm',
-            searchContent: 'Tìm kiếm nội dung',
-            listFiles: 'Danh sách tệp',
-            planProposal: 'Đề xuất kế hoạch',
-            readFile: 'Đọc tệp',
-            editFile: 'Chỉnh sửa tệp',
-            writeFile: 'Ghi tệp',
-            fetchUrl: 'Lấy URL',
-            readNotebook: 'Đọc Notebook',
-            editNotebook: 'Chỉnh sửa Notebook',
-            todoList: 'Danh sách việc cần làm',
-            webSearch: 'Tìm kiếm Web',
-        },
-        desc: {
-            terminalCmd: ({ cmd }: { cmd: string }) => `Terminal(lệnh: ${cmd})`,
-            searchPattern: ({ pattern }: { pattern: string }) => `Tìm kiếm(mẫu: ${pattern})`,
-            searchPath: ({ basename }: { basename: string }) => `Tìm kiếm(đường dẫn: ${basename})`,
-            fetchUrlHost: ({ host }: { host: string }) => `Lấy URL(url: ${host})`,
-            editNotebookMode: ({ path, mode }: { path: string; mode: string }) => `Chỉnh sửa Notebook(tệp: ${path}, chế độ: ${mode})`,
-            todoListCount: ({ count }: { count: number }) => `Danh sách việc cần làm(số lượng: ${count})`,
-            webSearchQuery: ({ query }: { query: string }) => `Tìm kiếm Web(truy vấn: ${query})`,
-            grepPattern: ({ pattern }: { pattern: string }) => `grep(mẫu: ${pattern})`,
-            multiEditEdits: ({ path, count }: { path: string; count: number }) => `${path} (${count} chỉnh sửa)`,
-        }
-    },
-
-    files: {
-        searchPlaceholder: 'Tìm kiếm tệp...',
-        detachedHead: 'HEAD tách rời',
-        summary: ({ staged, unstaged }: { staged: number; unstaged: number }) => `${staged} đã staged • ${unstaged} chưa staged`,
-        notRepo: 'Không phải kho git',
-        notUnderGit: 'Thư mục này không thuộc kiểm soát phiên bản git',
-        searching: 'Đang tìm kiếm tệp...',
-        noFilesFound: 'Không tìm thấy tệp nào',
-        noFilesInProject: 'Không có tệp trong dự án',
-        tryDifferentTerm: 'Thử từ khóa tìm kiếm khác',
-        searchResults: ({ count }: { count: number }) => `Kết quả tìm kiếm (${count})`,
-        projectRoot: 'Gốc dự án',
-        stagedChanges: ({ count }: { count: number }) => `Thay đổi đã staged (${count})`,
-        unstagedChanges: ({ count }: { count: number }) => `Thay đổi chưa staged (${count})`,
-        // File viewer strings
-        loadingFile: ({ fileName }: { fileName: string }) => `Đang tải ${fileName}...`,
-        binaryFile: 'Tệp nhị phân',
-        cannotDisplayBinary: 'Không thể hiển thị nội dung tệp nhị phân',
-        diff: 'Diff',
-        file: 'Tệp',
-        fileEmpty: 'Tệp rỗng',
-        noChanges: 'Không có thay đổi để hiển thị',
-    },
-
-    sessionInfo: {
-        // Used by Session Info screen (app/(app)/session/[id]/info.tsx)
-        killSession: 'Kết thúc phiên',
-        killSessionConfirm: 'Bạn có chắc chắn muốn kết thúc phiên này?',
-        happySessionIdCopied: 'ID phiên D3 AI đã được sao chép vào clipboard',
-        failedToCopySessionId: 'Không thể sao chép ID phiên D3 AI',
-        happySessionId: 'ID phiên D3 AI',
-        claudeCodeSessionId: 'ID phiên Claude Code',
-        claudeCodeSessionIdCopied: 'ID phiên Claude Code đã được sao chép vào clipboard',
-        failedToCopyClaudeCodeSessionId: 'Không thể sao chép ID phiên Claude Code',
-        metadataCopied: 'Metadata đã được sao chép vào clipboard',
-        failedToCopyMetadata: 'Không thể sao chép metadata',
-        failedToKillSession: 'Không thể kết thúc phiên',
-        connectionStatus: 'Trạng thái kết nối',
-        created: 'Đã tạo',
-        lastUpdated: 'Cập nhật cuối',
-        sequence: 'Trình tự',
-        quickActions: 'Hành động nhanh',
-        viewMachine: 'Xem máy tính',
-        viewMachineSubtitle: 'Xem chi tiết máy tính và phiên',
-        killSessionSubtitle: 'Kết thúc phiên ngay lập tức',
-        metadata: 'Metadata',
-        host: 'Máy chủ',
-        path: 'Đường dẫn',
-        operatingSystem: 'Hệ điều hành',
-        processId: 'ID tiến trình',
-        happyHome: 'D3 AI Home',
-        copyMetadata: 'Sao chép Metadata',
-        agentState: 'Trạng thái Agent',
-        controlledByUser: 'Được điều khiển bởi người dùng',
-        pendingRequests: 'Yêu cầu đang chờ',
-        activity: 'Hoạt động',
-        thinking: 'Đang suy nghĩ',
-        thinkingSince: 'Đang suy nghĩ từ',
-    },
-
-    server: {
-        // Used by Server Configuration screen (app/(app)/server.tsx)
-        serverConfiguration: 'Cấu hình máy chủ',
-        enterServerUrl: 'Vui lòng nhập URL máy chủ',
-        notValidD3AIServer: 'Không phải máy chủ D3 AI hợp lệ',
-        changeServer: 'Thay đổi máy chủ',
-        continueWithServer: 'Tiếp tục với máy chủ này?',
-        resetToDefault: 'Đặt lại về mặc định',
-        resetServerDefault: 'Đặt lại máy chủ về mặc định?',
-        validating: 'Đang xác thực...',
-        validatingServer: 'Đang xác thực máy chủ...',
-        serverReturnedError: 'Máy chủ trả về lỗi',
-        failedToConnectToServer: 'Không thể kết nối đến máy chủ',
-        currentlyUsingCustomServer: 'Hiện đang sử dụng máy chủ tùy chỉnh',
-        customServerUrlLabel: 'URL máy chủ tùy chỉnh',
-        advancedFeatureFooter: 'Đây là tính năng nâng cao. Chỉ thay đổi máy chủ nếu bạn biết mình đang làm gì. Bạn sẽ cần đăng xuất và đăng nhập lại sau khi thay đổi máy chủ.'
-    },
-
-    components: {
-        emptyMainScreen: {
-            // Used by EmptyMainScreen component
-            readyToCode: 'Sẵn sàng lập trình?',
-            installCli: 'Cài đặt D3 AI CLI',
-            runIt: 'Chạy nó',
-            scanQrCode: 'Quét mã QR',
-            openCamera: 'Mở máy ảnh',
-        },
     },
 };
